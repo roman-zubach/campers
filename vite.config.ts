@@ -8,6 +8,7 @@ const assetsPath = resolve(__dirname, 'src/assets');
 
 export default defineConfig({
     plugins: [react()],
+    base: "/campers/",
     resolve: {
         alias: {
             '~': root,
