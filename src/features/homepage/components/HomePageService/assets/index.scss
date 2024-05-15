@@ -1,0 +1,26 @@
+.service {
+  background-color: #f4f4f4;
+  padding: 50px 0;
+
+  &__title {
+    color: $dark-color;
+  }
+
+  &__container {
+    text-align: center;
+    margin-bottom: 40px;
+
+    &_img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    &_title {
+      margin-top: 20px;
+    }
+
+    &_text {
+
+    }
+  }
+}

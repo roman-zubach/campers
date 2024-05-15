@@ -1,0 +1,28 @@
+.hero {
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 55.23%,
+      rgba(0, 0, 0, 0.3) 66.28%
+  ),
+  url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: $cloud-color;
+  text-align: center;
+  padding: 250px 0;
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+
+    &__title {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+}
