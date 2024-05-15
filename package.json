@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://roman-zubach.github.io/campers/",
+  "homepage": "https://roman-zubach.github.io/",
   "dependencies": {
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
