@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './assets/idex.scss';
+import './assets/index.scss';
 
 export const LayoutHeader: React.FC = () => {
   return (

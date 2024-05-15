@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './assets/idex.scss';
+import './assets/index.scss';
 
 export const LayoutFooter: React.FC = () => {
   return (

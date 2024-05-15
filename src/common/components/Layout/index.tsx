@@ -9,7 +9,7 @@ export const Layout: React.FC = () => {
   return (
     <div>
       <LayoutHeader />
-      <div className="container">
+      <div>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
