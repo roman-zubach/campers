@@ -7,7 +7,7 @@ const root = resolve(__dirname, 'src');
 
 export default defineConfig({
     plugins: [react()],
-    base: "/campers/",
+    base: "/campers",
     resolve: {
         alias: {
             '~': root,

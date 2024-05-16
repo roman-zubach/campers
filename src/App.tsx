@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { RouteList } from '~/routing/components';
 
 const App = () => (
-  <BrowserRouter basename='/campers/'>
+  <BrowserRouter basename='/campers'>
     <RouteList />
   </BrowserRouter>
 );
