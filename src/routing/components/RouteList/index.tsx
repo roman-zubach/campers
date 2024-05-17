@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Layout } from '~/common/components';
-import { CatalogPage, FavoritesPage, HomePage } from '~/pages';
-import { routePaths } from '~/routing/constants';
+import { Layout } from '@/common/components';
+import { CatalogPage, FavoritesPage, HomePage } from '@/pages';
+import { routePaths } from '@/routing/constants';
 
 export const RouteList: React.FC = () => (
   <Routes>

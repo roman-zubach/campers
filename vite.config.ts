@@ -4,13 +4,15 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 const root = resolve(__dirname, 'src');
+const assetsPath = resolve(__dirname, 'src/assets');
 
 export default defineConfig({
     plugins: [react()],
     base: "/campers",
     resolve: {
         alias: {
-            '~': root,
+            '@': root,
+            '@assets': assetsPath,
         },
     },
     css: {

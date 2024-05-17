@@ -5,16 +5,18 @@ import { Loader } from '../Loader';
 import { LayoutHeader } from './LayoutHeader';
 import { LayoutFooter } from './LayoutFooter';
 
+import './assets/index.scss';
+
 export const Layout: React.FC = () => {
   return (
-    <div>
+    <>
       <LayoutHeader />
-      <div>
+      <div className='main'>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </div>
       <LayoutFooter />
-    </div>
+    </>
   );
 };

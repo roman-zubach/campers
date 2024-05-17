@@ -1,0 +1,10 @@
+.camper_item_details_item {
+  @extend .secondary-text;
+
+  padding: 12px 18px;
+  display: flex;
+  gap: 8px;
+
+  border-radius: 100px;
+  background-color: $cloud-color;
+}

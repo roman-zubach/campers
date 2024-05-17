@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HomePageAbout, HomePageContact, HomePageHero, HomePageService } from '~/features/homepage/components';
+import { HomePageAbout, HomePageContact, HomePageHero, HomePageService } from '@/features/homepage/components';
 
 import './assets/index.css';
 
