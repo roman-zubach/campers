@@ -10,7 +10,7 @@ export const Loader: React.FC = () => {
         visible={true}
         height="80"
         width="80"
-        color="#1866CCC6"
+        color="#E44848"
         radius="9"
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}

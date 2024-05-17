@@ -4,7 +4,6 @@ import {
   ShortCamperDetailsMap,
 } from '@/features/campers/componetns/CamperItemDetailsItem/constants';
 
-
 import { Camper } from '@/features/campers/componetns/types';
 import { CamperItemDetailsItem } from '@/features/campers/componetns/CamperItemDetailsItem';
 

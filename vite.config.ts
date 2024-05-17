@@ -22,7 +22,6 @@ export default defineConfig({
           @import 'src/assets/scss/common/reset.scss';
           @import 'src/assets/scss/common/colors.scss';
           @import 'src/assets/scss/common/base.scss';
-          @import 'src/assets/scss/common/button.scss';
           @import 'src/assets/scss/common/text.scss';
         `,
             },

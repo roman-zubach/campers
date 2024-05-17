@@ -5,6 +5,7 @@ import { CamperItemDetails } from '@/features/campers/componetns/CamperItemDetai
 import starSvg from '@assets/svg/star.svg';
 import mapPinSvg from '@assets/svg/map-pin.svg';
 import './assets/index.scss';
+import { Button } from '@/common/components';
 
 type Props = {
   camper: Camper;
@@ -36,7 +37,7 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
         </div>
         <p className="camper_item__body_text">{description}</p>
         <CamperItemDetails camper={camper} fullList={false} />
-        <button className="btn_main">Show more</button>
+        <Button text='Show more' className='btn_main' />
       </div>
     </div>
   );
