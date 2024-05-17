@@ -35,7 +35,7 @@ export const CamperItemDetails: React.FC<Props> = ({ camper, fullList }) => {
         if (!data) return null;
 
         return <CamperItemDetailsItem
-          key={data.text}
+          key={key}
           text={data.text}
           svg={data.svg}
           showValue={data.showValue}
