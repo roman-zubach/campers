@@ -6,6 +6,7 @@ import starSvg from '@assets/svg/star.svg';
 import mapPinSvg from '@assets/svg/map-pin.svg';
 import './assets/index.scss';
 import { Button } from '@/common/components';
+import { Icon } from '@/common/components/Icon';
 
 type Props = {
   camper: Camper;
@@ -24,13 +25,13 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
           </div>
           <div className="camper_item__body_header_additional">
             <div className="camper_item__body_header_additional_container">
-              <img src={starSvg} alt="star" />
+              <Icon name="star" width="16" height="16" />
               <p className="camper_item__body_header_additional_review_text">
                 {rating}({reviews.length} Reviews)
               </p>
             </div>
             <p className="camper_item__body_header_additional_container">
-              <img src={mapPinSvg} alt="map-pin" />
+              <Icon name="map-pin" width="16" height="16" />
               {location}
             </p>
           </div>
