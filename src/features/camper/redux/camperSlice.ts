@@ -1,4 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import { fetchCampers } from './operations';
 import { Camper, CamperForm } from '@/features/camper/types';
 
@@ -14,6 +17,7 @@ type CamperFilerState = {
 
 type CamperState = {
   items: Camper[];
+  favoriteItems: Camper[];
   isLoading: boolean;
   error: string | null;
   filters: CamperFilerState,
@@ -21,6 +25,7 @@ type CamperState = {
 
 const initialState: CamperState = {
   items: [],
+  favoriteItems: [],
   isLoading: false,
   error: null,
   filters: {
@@ -55,6 +60,12 @@ const camperSlice = createSlice({
     updateFilterAction: (state, { payload }) => {
       state.filters = payload;
     },
+    addFavoriteAction: (state, { payload }) => {
+      state.favoriteItems.push(payload);
+    },
+    removeFavoriteAction: (state, { payload }) => {
+      state.favoriteItems = state.favoriteItems.filter(el => el._id !== payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -69,6 +80,14 @@ const camperSlice = createSlice({
 
 export const {
   updateFilterAction,
+  addFavoriteAction,
+  removeFavoriteAction,
 } = camperSlice.actions;
 
-export const camperReducer = camperSlice.reducer;
+const camperConfig = {
+  key: 'camper',
+  storage,
+  whitelist: ['favoriteItems'],
+};
+
+export const camperReducer = persistReducer(camperConfig, camperSlice.reducer);

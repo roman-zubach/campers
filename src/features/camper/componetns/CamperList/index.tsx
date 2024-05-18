@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { fetchCampers } from '@/features/camper/redux/operations';
 import { Loader } from '@/common/components';
-import CamperItem from './components/CamperItem';
+import { CamperItem } from './components';
 import { selectError, selectFilteredContacts, selectIsLoading } from '@/features/camper/redux/selectors';
 
 import './assets/index.scss';
@@ -22,6 +22,7 @@ export const CamperList: React.FC = () => {
 
   return (
     <ul className="camper_list">
+      <p></p>
       {isLoading && <Loader />}
       {error && <p>error</p>}
       {campers.length && campers.map((camper) => <CamperItem camper={camper} key={camper._id} />)}

@@ -14,7 +14,7 @@ export const CamperSearchFormInput: React.FC = () => {
           name="location"
           placeholder="City"
         />
-        <Icon styles="camper_search_input_group__icon" name="map-pin" width="16" height="16" />
+        <Icon className="camper_search_input_group__icon" name="map-pin" width="16" height="16" />
       </div>
     </div>
   );

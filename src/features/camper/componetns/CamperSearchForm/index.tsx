@@ -49,7 +49,7 @@ export const CamperSearchForm: React.FC = () => {
     <form className="camper_search_form" onSubmit={handleSubmit}>
       <CamperSearchFormInput />
       <CamperSearchFormFilters />
-      <Button type="submit" text="Search" styles="btn_main" />
+      <Button type="submit" styles="btn_main">Search</Button>
     </form>
   );
 };

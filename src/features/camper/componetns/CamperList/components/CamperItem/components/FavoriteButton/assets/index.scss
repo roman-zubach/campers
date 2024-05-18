@@ -1,0 +1,23 @@
+.favorite_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+
+  border: none;
+  color: white;
+  cursor: pointer;
+
+
+  &__heart {
+    fill: none;
+    stroke: $dark-color;
+
+    transition: stroke $transition, fill $transition;
+
+    &.active {
+      fill: $red-color;
+      stroke: $red-color;
+    }
+  }
+}

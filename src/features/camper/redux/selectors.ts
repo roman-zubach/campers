@@ -5,6 +5,12 @@ export const selectCampers = (state: RootState) => state.camper.items;
 export const selectIsLoading = (state: RootState) => state.camper.isLoading;
 export const selectError = (state: RootState) => state.camper.error;
 export const selectFilters = (state: RootState) => state.camper.filters;
+export const selectFavoriteCampers = (state: RootState) => state.camper.favoriteItems;
+
+export const selectIsFavorite = (id: string) => createSelector(
+  [selectFavoriteCampers],
+  (favoriteCampers) => favoriteCampers.some((camper) => camper._id === id)
+);
 
 export const selectFilteredContacts = createSelector(
   [selectCampers, selectFilters],
