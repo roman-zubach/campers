@@ -7,22 +7,13 @@ import { FiltersItem } from '@/features/camper/componetns/CamperSearchForm/Campe
 type Props = {
   item: FiltersItem;
   type: 'checkbox' | 'radio';
-  onChange: (id: string) => void;
 };
 
-const CamperSearchFormFiltersItem: React.FC<Props> = ({ item, type, onChange }) => {
+const CamperSearchFormFiltersItem: React.FC<Props> = ({ item, type }) => {
   const { id, name, svg, checked } = item;
 
-  const handleClick = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    onChange(id);
-  };
-
-  const handleLabelClick = (event: React.MouseEvent<HTMLLabelElement, MouseEvent>) => {
-    event.stopPropagation();
-  };
-
   return (
-    <li className={`camper_search_form_filters_item ${checked ? 'active' : ''}`} onClick={handleClick}>
+    <li className={`camper_search_form_filters_item ${checked ? 'active' : ''}`} id={id} >
       <input
         className="camper_search_form_filters_item__input"
         type={type}
@@ -30,7 +21,7 @@ const CamperSearchFormFiltersItem: React.FC<Props> = ({ item, type, onChange }) 
         readOnly
         id={id}
       />
-      <label className="camper_search_form_filters_item__label" htmlFor={id} onClick={handleLabelClick}>
+      <label className="camper_search_form_filters_item__label" htmlFor={id}>
         <Icon name={svg} height="32" width="32" />
         <p className="camper_search_form_filters_item__label_text">{name}</p>
       </label>

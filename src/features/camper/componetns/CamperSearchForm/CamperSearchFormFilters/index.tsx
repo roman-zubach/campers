@@ -13,7 +13,11 @@ const CamperSearchFormFilters = () => {
 
   const [radios, updateRadios] = useState(RadioFiltersItems);
 
-  const handleCheckboxChange = (id: string) => {
+  const handleClickCheckbox = (event: React.MouseEvent<HTMLUListElement>) => {
+    const id = (event.target as HTMLElement).closest('li')?.id;
+
+    if (!id) return;
+
     updateCheckboxes(prevState =>
       prevState.map(checkbox =>
         (checkbox.id === id ? { ...checkbox, checked: !checkbox.checked } : checkbox)
@@ -21,7 +25,11 @@ const CamperSearchFormFilters = () => {
     );
   };
 
-  const handleRadioChange = (id: string) => {
+  const handleRadioChange = (event: React.MouseEvent<HTMLUListElement>) => {
+    const id = (event.target as HTMLElement).closest('li')?.id;
+
+    if (!id) return;
+
     updateRadios(prevState =>
       prevState.map(radio => ({ ...radio, checked: radio.id === id }))
     );
@@ -35,9 +43,9 @@ const CamperSearchFormFilters = () => {
           Vehicle equipment
         </h2>
         <hr className="camper_search_form_filters__container_line" />
-        <ul className="camper_search_form_filters__container_list">
+        <ul className="camper_search_form_filters__container_list" onClick={handleClickCheckbox}>
           {checkboxes.map((checkbox) => (
-            <CamperSearchFormFiltersItem key={checkbox.id} item={checkbox} type="checkbox" onChange={handleCheckboxChange} />
+            <CamperSearchFormFiltersItem key={checkbox.id} item={checkbox} type="checkbox" />
           ))}
         </ul>
       </div>
@@ -46,9 +54,9 @@ const CamperSearchFormFilters = () => {
           Vehicle type
         </h2>
         <hr className="camper_search_form_filters__container_line" />
-        <ul className="camper_search_form_filters__container_list">
+        <ul className="camper_search_form_filters__container_list" onClick={handleRadioChange}>
           {radios.map((radio) => (
-            <CamperSearchFormFiltersItem key={radio.id} item={radio} type="radio" onChange={handleRadioChange} />
+            <CamperSearchFormFiltersItem key={radio.id} item={radio} type="radio" />
           ))}
         </ul>
       </div>

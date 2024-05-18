@@ -42,3 +42,9 @@ export type CamperReview = {
   reviewer_rating: number;
   comment: string;
 };
+
+export type CamperState = {
+  items: Camper[];
+  isLoading: boolean;
+  error: string | null;
+}

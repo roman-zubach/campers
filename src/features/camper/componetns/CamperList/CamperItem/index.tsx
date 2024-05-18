@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camper } from '@/features/camper/componetns/types';
+import { Camper } from '@/features/camper/types';
 import { CamperItemDetails } from '@/features/camper/componetns/CamperItemDetails';
 
 import starSvg from '@assets/svg/star.svg';
