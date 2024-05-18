@@ -3,36 +3,42 @@ export type FiltersItem = {
   name: string;
   svg: string;
   checked: boolean;
+  text: string;
 }
 
 export const CheckboxesFiltersItems: FiltersItem[] = [
   {
     id: "ac",
-    name: "AC",
+    name: "ac",
+    text: "AC",
     svg: "wind",
     checked: false,
   },
   {
     id: "automatic",
-    name: "Automatic",
+    name: "automatic",
+    text: "Automatic",
     svg: "automatic",
     checked: false,
   },
   {
     id: "kitchen",
-    name: "Kitchen",
+    name: "kitchen",
+    text: "Kitchen",
     svg: "kitchen",
     checked: false,
   },
   {
     id: "tv",
-    name: "TV",
+    name: "tv",
+    text: "TV",
     svg: "tv",
     checked: false,
   },
   {
     id: "shower",
-    name: "Shower/WC",
+    name: "shower",
+    text: "Shower/WC",
     svg: "shower",
     checked: false,
   },
@@ -40,20 +46,23 @@ export const CheckboxesFiltersItems: FiltersItem[] = [
 
 export const RadioFiltersItems: FiltersItem[] = [
   {
-    id: "van",
-    name: "Van",
+    id: "panelTruck",
+    name: "form",
+    text: "Van",
     svg: "van",
     checked: false,
   },
   {
-    id: "fully_integrated",
-    name: "Fully Integrated",
+    id: "fullyIntegrated",
+    name: "form",
+    text: "Fully Integrated",
     svg: "fully_integrated",
     checked: false,
   },
   {
     id: "alcove",
-    name: "Alcove",
+    name: "form",
+    text: "Alcove",
     svg: "alcove",
     checked: false,
   },

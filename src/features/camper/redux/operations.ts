@@ -8,7 +8,6 @@ export const fetchCampers = createAsyncThunk<Camper[], void, { rejectValue: stri
   'campers/fetchAll',
   async (_, thunkAPI) => {
     try {
-      console.log(1);
       return await getCampersApi();
     } catch (e) {
       const error = e as AxiosError;

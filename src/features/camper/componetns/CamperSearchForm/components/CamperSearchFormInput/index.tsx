@@ -3,7 +3,7 @@ import { Icon } from '@/common/components/Icon';
 
 import './assets/index.scss';
 
-const CamperSearchFormInput: React.FC = () => {
+export const CamperSearchFormInput: React.FC = () => {
   return (
     <div className="camper_search_input_group">
       <label className="camper_search_input_group__label" htmlFor="location">Location</label>
@@ -19,5 +19,3 @@ const CamperSearchFormInput: React.FC = () => {
     </div>
   );
 };
-
-export default CamperSearchFormInput;

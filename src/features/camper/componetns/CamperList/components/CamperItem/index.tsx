@@ -1,12 +1,10 @@
 import React from 'react';
 import { Camper } from '@/features/camper/types';
 import { CamperItemDetails } from '@/features/camper/componetns/CamperItemDetails';
-
-import starSvg from '@assets/svg/star.svg';
-import mapPinSvg from '@assets/svg/map-pin.svg';
-import './assets/index.scss';
 import { Button } from '@/common/components';
 import { Icon } from '@/common/components/Icon';
+
+import './assets/index.scss';
 
 type Props = {
   camper: Camper;
@@ -15,7 +13,7 @@ type Props = {
 const CamperItem: React.FC<Props> = ({ camper }) => {
   const { name, price, location, rating, description, gallery, reviews } = camper;
   return (
-    <div className="camper_item">
+    <li className="camper_item">
       <img className="camper_item__img" src={gallery[0]} alt={name} />
       <div className="camper_item__body">
         <div className="camper_item__body_header">
@@ -40,7 +38,7 @@ const CamperItem: React.FC<Props> = ({ camper }) => {
         <CamperItemDetails camper={camper} fullList={false} />
         <Button text='Show more' styles='btn_main' />
       </div>
-    </div>
+    </li>
   );
 };
 

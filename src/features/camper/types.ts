@@ -1,3 +1,6 @@
+export type CamperForm = "alcove" | "fullyIntegrated" | "panelTruck";
+export type CamperTransmission = "manual" | "automatic";
+
 export type Camper = {
   _id: string;
   name: string;
@@ -7,8 +10,8 @@ export type Camper = {
   adults: number;
   children: number;
   engine: string;
-  transmission: string;
-  form: string;
+  transmission: CamperTransmission;
+  form: CamperForm;
   length: string;
   width: string;
   height: string;
@@ -42,9 +45,3 @@ export type CamperReview = {
   reviewer_rating: number;
   comment: string;
 };
-
-export type CamperState = {
-  items: Camper[];
-  isLoading: boolean;
-  error: string | null;
-}

@@ -1,7 +1,7 @@
 import React from 'react';
+import { Icon } from '@/common/components/Icon';
 
 import './assets/index.scss';
-import { Icon } from '@/common/components/Icon';
 
 type Props = {
   text: string;

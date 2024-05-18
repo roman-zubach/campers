@@ -1,6 +1,7 @@
 .catalog {
-  width: 1312px;
-  padding: 24px 64px;
+  @extend .container;
+  padding-top: 0;
+
   display: flex;
   gap: 64px;
 }

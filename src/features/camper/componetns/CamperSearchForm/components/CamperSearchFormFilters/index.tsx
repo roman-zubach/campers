@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 
-import CamperSearchFormFiltersItem from './CamperSearchFormFiltersItem';
-import {
-  CheckboxesFiltersItems,
-  RadioFiltersItems,
-} from '@/features/camper/componetns/CamperSearchForm/CamperSearchFormFilters/types';
+import { CheckboxesFiltersItems, RadioFiltersItems} from './types';
+import { CamperSearchFormFiltersItem } from './components';
 
 import './assert/index.scss';
 
-const CamperSearchFormFilters = () => {
+export const CamperSearchFormFilters: React.FC = () => {
   const [checkboxes, updateCheckboxes] = useState(CheckboxesFiltersItems);
 
   const [radios, updateRadios] = useState(RadioFiltersItems);
@@ -31,7 +28,7 @@ const CamperSearchFormFilters = () => {
     if (!id) return;
 
     updateRadios(prevState =>
-      prevState.map(radio => ({ ...radio, checked: radio.id === id }))
+      prevState.map(radio => ({ ...radio, checked: radio.id === id && !radio.checked }))
     );
   };
 
@@ -63,5 +60,3 @@ const CamperSearchFormFilters = () => {
     </div>
   );
 };
-
-export default CamperSearchFormFilters;

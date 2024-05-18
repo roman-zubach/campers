@@ -9,6 +9,5 @@ const instance = axios.create({
 export const getCampersApi = async (): Promise<Camper[]> => {
   const { data } = await instance.get('/campers/');
 
-  console.log(1);
   return data;
 };
