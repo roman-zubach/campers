@@ -4,11 +4,12 @@ import './assets/index.scss';
 
 interface ButtonProps {
   text: string;
-  className: string,
+  styles: string,
+  type?: "button" | "submit",
 }
 
-export const Button: React.FC<ButtonProps> = ({ text, className }) => {
+export const Button: React.FC<ButtonProps> = ({ text, styles, type = "button" }) => {
   return (
-    <button className={className}>{text}</button>
+    <button type={type} className={styles}>{text}</button>
   );
 };

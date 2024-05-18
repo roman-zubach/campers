@@ -1,6 +1,7 @@
 import React from 'react';
-import { Camper } from '@/features/campers/componetns/types';
-import { CamperItem } from '@/features/campers/componetns/CamperItem';
+
+import { Camper } from '@/features/camper/componetns/types';
+import CamperItem from '@/features/camper/componetns/CamperList/CamperItem';
 
 import './assets/index.scss';
 

@@ -1,0 +1,34 @@
+.camper_search_form_filters_item {
+  width: calc((100% - 44px) / 4);
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  outline: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  transition: outline-color $transition;
+
+  &.active {
+    outline-color: $red-color;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &_text {
+      @extend .secondary-text;
+
+      text-align: center;
+    }
+  }
+}

@@ -23,6 +23,7 @@ export default defineConfig({
           @import 'src/assets/scss/common/colors.scss';
           @import 'src/assets/scss/common/base.scss';
           @import 'src/assets/scss/common/text.scss';
+          @import 'src/assets/scss/common/variables.scss';
         `,
             },
         },

@@ -120,5 +120,3 @@ export const FullCamperDetailsMap = {
   ac: BaseCamperDetailsMap.ac,
   petrol: BaseCamperDetailsMap.petrol,
 };
-
-export type CamperDetailName = keyof typeof BaseCamperDetailsMap;

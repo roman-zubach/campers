@@ -6,11 +6,12 @@ type Props = {
   name: string;
   width: string;
   height: string;
+  styles?: string;
 }
 
-export const Icon: React.FC<Props> = ({name, width, height}) => {
+export const Icon: React.FC<Props> = ({name, width, height, styles = ""}) => {
   return (
-    <svg width={width} height={height}>
+    <svg className={styles} width={width} height={height}>
       <use xlinkHref={`${sprite}#${name}`} />
     </svg>
   );

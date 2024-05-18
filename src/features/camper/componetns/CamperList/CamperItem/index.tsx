@@ -1,6 +1,6 @@
 import React from 'react';
-import { Camper } from '@/features/campers/componetns/types';
-import { CamperItemDetails } from '@/features/campers/componetns/CamperItemDetails';
+import { Camper } from '@/features/camper/componetns/types';
+import { CamperItemDetails } from '@/features/camper/componetns/CamperItemDetails';
 
 import starSvg from '@assets/svg/star.svg';
 import mapPinSvg from '@assets/svg/map-pin.svg';
@@ -12,7 +12,7 @@ type Props = {
   camper: Camper;
 }
 
-export const CamperItem: React.FC<Props> = ({ camper }) => {
+const CamperItem: React.FC<Props> = ({ camper }) => {
   const { name, price, location, rating, description, gallery, reviews } = camper;
   return (
     <div className="camper_item">
@@ -20,7 +20,7 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
       <div className="camper_item__body">
         <div className="camper_item__body_header">
           <div className="camper_item__body_header_main">
-            <p>{name}</p>
+            <h3>{name}</h3>
             <p>€{price}</p>
           </div>
           <div className="camper_item__body_header_additional">
@@ -38,8 +38,10 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
         </div>
         <p className="camper_item__body_text">{description}</p>
         <CamperItemDetails camper={camper} fullList={false} />
-        <Button text='Show more' className='btn_main' />
+        <Button text='Show more' styles='btn_main' />
       </div>
     </div>
   );
 };
+
+export default CamperItem;

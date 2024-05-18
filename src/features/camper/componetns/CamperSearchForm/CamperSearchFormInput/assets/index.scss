@@ -1,0 +1,38 @@
+.camper_search_input_group {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: $grey-color;
+
+  &__label {
+    @extend .text;
+
+    color: $grey-color;
+  }
+
+  &__container {
+    position: relative;
+
+  }
+
+  &__input {
+    position: relative;
+    width: 298px;
+    padding: 18px 18px 18px 44px;
+    background-color: $cloud-color;
+    border-radius: 10px;
+    border: none;
+  }
+
+  &__icon{
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    top: 30%;
+    left: 18px;
+
+    stroke: $grey-color;
+  }
+}
