@@ -2,12 +2,13 @@ import { RootState } from '@/redux/store';
 import { createSelector } from '@reduxjs/toolkit';
 import { ITEMS_PER_PAGE } from '@/features/camper/componetns/CamperList/constants';
 
-export const selectCampers = (state: RootState) => state.camper.items;
+export const selectCampers = (state: RootState) => state.camper.campers;
 export const selectIsLoading = (state: RootState) => state.camper.isLoading;
 export const selectError = (state: RootState) => state.camper.error;
 export const selectFilters = (state: RootState) => state.camper.filters;
-export const selectFavoriteCampers = (state: RootState) => state.camper.favoriteItems;
+export const selectFavoriteCampers = (state: RootState) => state.camper.favoriteCampers;
 export const selectPage = (state: RootState) => state.camper.page;
+export const selectSelectedCamper = (state: RootState) => state.camper.selectedCamper;
 
 export const selectIsFavorite = (id: string) => createSelector(
   [selectFavoriteCampers],

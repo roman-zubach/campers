@@ -6,27 +6,4 @@
   &__title {
     color: $grey-color;
   }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    &_title {
-      @extend .secondary-title-text;
-
-      color: $dark-color;
-    }
-
-    &_line {
-      width: 100%;
-      color: rgba(16, 24, 40, 0.1);
-    }
-
-    &_list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-  }
 }

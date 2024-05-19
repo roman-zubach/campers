@@ -1,0 +1,17 @@
+.camper_search_form_filters_items_group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__title {
+    @extend .secondary_title_text;
+
+    color: $dark-color;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

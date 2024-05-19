@@ -29,7 +29,7 @@
       gap: 8px;
 
       &_main {
-        @extend .title-text;
+        @extend .title_text;
 
         display: flex;
         align-items: center;
@@ -60,6 +60,11 @@
           align-items: center;
           justify-content: center;
           gap: 4px;
+
+          &_icon {
+            fill: $gold-color;
+            stroke: $gold-color;
+          }
         }
 
         &_review_text {

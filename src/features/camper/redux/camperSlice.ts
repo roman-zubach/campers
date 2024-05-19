@@ -3,7 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { fetchCampers } from './operations';
-import { Camper, CamperForm } from '@/features/camper/types';
+import { BookedCamper, Camper, CamperForm } from '@/features/camper/types';
 
 type CamperFilerState = {
   location: string;
@@ -16,17 +16,21 @@ type CamperFilerState = {
 }
 
 type CamperState = {
-  items: Camper[];
-  favoriteItems: Camper[];
+  campers: Camper[];
+  favoriteCampers: Camper[];
+  selectedCamper: Camper | null;
   isLoading: boolean;
   error: string | null;
   page: number;
   filters: CamperFilerState,
+  bookedCampers: BookedCamper[],
 }
 
 const initialState: CamperState = {
-  items: [],
-  favoriteItems: [],
+  campers: [],
+  favoriteCampers: [],
+  bookedCampers: [],
+  selectedCamper: null,
   isLoading: false,
   error: null,
   page: 1,
@@ -63,19 +67,25 @@ const camperSlice = createSlice({
       state.filters = payload;
     },
     addFavoriteAction: (state, { payload }) => {
-      state.favoriteItems.push(payload);
+      state.favoriteCampers.push(payload);
     },
     removeFavoriteAction: (state, { payload }) => {
-      state.favoriteItems = state.favoriteItems.filter(el => el._id !== payload);
+      state.favoriteCampers = state.favoriteCampers.filter(el => el._id !== payload);
     },
     increasePageAction: (state) => {
       state.page += 1;
+    },
+    setSelectCamperAction: (state, { payload }) => {
+      state.selectedCamper = payload;
+    },
+    bookCamperAction: (state, { payload }) => {
+      state.bookedCampers.push(payload);
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.fulfilled, (state, action: PayloadAction<Camper[]>) => {
-        state.items = action.payload;
+        state.campers = action.payload;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
       .addMatcher((action) => action.type.endsWith('/rejected'), handleRejected)
@@ -88,12 +98,14 @@ export const {
   addFavoriteAction,
   removeFavoriteAction,
   increasePageAction,
+  setSelectCamperAction,
+  bookCamperAction,
 } = camperSlice.actions;
 
 const camperConfig = {
   key: 'camper',
   storage,
-  whitelist: ['favoriteItems'],
+  whitelist: ['favoriteItems', 'bookedCampers'],
 };
 
 export const camperReducer = persistReducer(camperConfig, camperSlice.reducer);

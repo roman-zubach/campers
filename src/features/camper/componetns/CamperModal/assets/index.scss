@@ -1,0 +1,27 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(17, 18, 19, 0.4);
+  z-index: 1200;
+}
+
+.camper_modal {
+  width: 902px;
+  max-height: calc(100vh - 160px);
+  padding: 40px;
+  border-radius: 20px;
+  background-color: $white-color;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__content {
+    overflow-y: auto;
+  }
+}

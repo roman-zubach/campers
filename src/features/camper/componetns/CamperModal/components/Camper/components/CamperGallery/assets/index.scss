@@ -1,0 +1,14 @@
+.camper_gallery {
+  display: flex;
+  gap: 16px;
+
+  &__img {
+    width: 290px;
+    height: 310px;
+
+    object-fit: cover;
+    border-radius: 10px;
+
+    background-color: $cloud-color;
+  }
+}

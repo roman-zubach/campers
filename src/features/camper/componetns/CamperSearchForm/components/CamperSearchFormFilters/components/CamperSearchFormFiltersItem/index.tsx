@@ -1,8 +1,8 @@
 import React from 'react';
-import { Icon } from '@/common/components/Icon';
+import { Icon } from '@/common/components';
+import { FiltersItem } from '@/features/camper/componetns/CamperSearchForm/components/CamperSearchFormFilters/types';
 
 import './assets/index.scss';
-import { FiltersItem } from '@/features/camper/componetns/CamperSearchForm/components/CamperSearchFormFilters/types';
 
 type Props = {
   item: FiltersItem;

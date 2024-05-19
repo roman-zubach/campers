@@ -1,0 +1,41 @@
+.camper_description_review_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__user_profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &_info {
+      &_name{
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 1.3;
+        color: $dark-color;
+      }
+
+      &_rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        &_star {
+          fill: $cloud-color;
+          stroke: $cloud-color;
+
+          &.active {
+            fill: $gold-color;
+            stroke: $gold-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__comment {
+    @extend .text;
+  }
+}

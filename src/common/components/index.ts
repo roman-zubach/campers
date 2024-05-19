@@ -3,3 +3,7 @@ export * from './Layout';
 export * from './Button';
 export * from './ErrorMessage';
 export * from './NotFoundMessage';
+export * from './Icon';
+export * from './Image';
+export * from './Avatar';
+export * from './CustomDatePicker';

@@ -2,13 +2,15 @@ import React from 'react';
 
 import serviceImg from './assets/service-1.jpg';
 import tourImg from './assets/service-2.jpg';
+import { Image } from '@/common/components';
+
 import './assets/index.scss';
 
 export const HomePageService: React.FC = () => (
   <section className="service">
     <h2 className="service__title">Our Services</h2>
     <div className="service__container">
-      <img className="service__container_img" src={serviceImg} alt="Camper Rental" />
+      <Image className="service__container_img" src={serviceImg} alt="Camper Rental" />
       <div className="service__container_body">
         <h3 className="service__container_body_title">Camper Rental</h3>
         <p className="service__container_body_text">

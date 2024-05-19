@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '@/common/components/Icon';
+import { Icon } from '@/common/components';
 
 import './assets/index.scss';
 

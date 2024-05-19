@@ -1,3 +1,4 @@
 export * from './CamperList';
-export * from './CamperSearchForm/components/CamperSearchFormFilters';
+export * from './CamperDetails';
 export * from './CamperSearchForm';
+export * from './CamperModal';

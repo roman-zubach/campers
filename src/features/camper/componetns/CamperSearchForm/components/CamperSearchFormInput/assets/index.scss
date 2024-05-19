@@ -8,12 +8,11 @@
   &__label {
     @extend .text;
 
-    color: $grey-color;
+    color: $label-color;
   }
 
   &__container {
     position: relative;
-
   }
 
   &__input {
@@ -23,16 +22,26 @@
     background-color: $cloud-color;
     border-radius: 10px;
     border: none;
-  }
+    outline: none;
 
-  &__icon{
-    position: absolute;
+    &_icon{
+      position: absolute;
 
-    width: 20px;
-    height: 20px;
-    top: 30%;
-    left: 18px;
+      width: 20px;
+      height: 20px;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      stroke: $grey-color;
 
-    stroke: $grey-color;
+      transition: stroke $transition;
+    }
+
+    &:focus,
+    &:active {
+      &_icon{
+        stroke: $dark-color;
+      }
+    }
   }
 }

@@ -1,0 +1,77 @@
+.camper_header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+
+    &_text {
+      @extend .title_text;
+    }
+
+    &_close_btn {
+      right: 32px;
+      top: 32px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+
+      transition: transform $transition;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &_icon {
+        stroke: $dark-color;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &_rating_container {
+      @extend .text;
+
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      &_group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        &_text {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -1px;
+            left: 0;
+            background-color: $dark-color;
+          }
+        }
+
+        &_icon {
+          fill: $gold-color;
+          stroke: $gold-color;
+        }
+      }
+    }
+
+    &_price {
+      @extend .title_text;
+    }
+  }
+}

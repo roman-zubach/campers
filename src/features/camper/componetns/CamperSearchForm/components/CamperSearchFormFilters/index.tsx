@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { CheckboxesFiltersItems, RadioFiltersItems} from './types';
-import { CamperSearchFormFiltersItem } from './components';
+import { CamperSearchFormFiltersItem, CamperSearchFormFiltersItemsGroup } from './components';
 
 import './assert/index.scss';
 
@@ -35,28 +35,8 @@ export const CamperSearchFormFilters: React.FC = () => {
   return (
     <div className="camper_search_form_filters">
       <p className="camper_search_form_filters__title">Filters</p>
-      <div className="camper_search_form_filters__container">
-        <h2 className="camper_search_form_filters__container_title">
-          Vehicle equipment
-        </h2>
-        <hr className="camper_search_form_filters__container_line" />
-        <ul className="camper_search_form_filters__container_list" onClick={handleClickCheckbox}>
-          {checkboxes.map((checkbox) => (
-            <CamperSearchFormFiltersItem key={checkbox.id} item={checkbox} type="checkbox" />
-          ))}
-        </ul>
-      </div>
-      <div className="camper_search_form_filters__container">
-        <h2 className="camper_search_form_filters__container_title">
-          Vehicle type
-        </h2>
-        <hr className="camper_search_form_filters__container_line" />
-        <ul className="camper_search_form_filters__container_list" onClick={handleRadioChange}>
-          {radios.map((radio) => (
-            <CamperSearchFormFiltersItem key={radio.id} item={radio} type="radio" />
-          ))}
-        </ul>
-      </div>
+      <CamperSearchFormFiltersItemsGroup title="Vehicle equipment" type="checkbox" items={checkboxes} onClick={handleClickCheckbox}/>
+      <CamperSearchFormFiltersItemsGroup title="Vehicle type" type="radio" items={radios} onClick={handleRadioChange}/>
     </div>
   );
 };

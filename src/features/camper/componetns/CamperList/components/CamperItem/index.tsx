@@ -2,12 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Camper } from '@/features/camper/types';
-import { CamperItemDetails } from '@/features/camper/componetns/CamperItemDetails';
-import { Button } from '@/common/components';
-import { Icon } from '@/common/components/Icon';
+import { CamperDetails } from '@/features/camper/componetns';
+import { Button, Icon, Image } from '@/common/components';
 import { FavoriteButton } from './components';
 import { AppDispatch } from '@/redux/store';
-import { addFavoriteAction, removeFavoriteAction } from '@/features/camper/redux/camperSlice';
+import { addFavoriteAction, removeFavoriteAction, setSelectCamperAction } from '@/features/camper/redux/camperSlice';
 import { selectIsFavorite } from '@/features/camper/redux/selectors';
 
 import './assets/index.scss';
@@ -19,7 +18,7 @@ type Props = {
 export const CamperItem: React.FC<Props> = ({ camper }) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { _id, name, price, location, rating, description, gallery, reviews } = camper;
+  const { _id, name, price, location, rating, description, gallery, reviews, adults, details } = camper;
 
   const isFavorite = useSelector(selectIsFavorite(_id));
 
@@ -31,9 +30,13 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
     }
   };
 
+  const handleClickShowMore = () => {
+    dispatch(setSelectCamperAction(camper));
+  }
+
   return (
     <li className="camper_item">
-      <img className="camper_item__img" src={gallery[0]} alt={name} />
+      <Image className="camper_item__img" src={gallery[0] ?? null} alt={name} />
       <div className="camper_item__body">
         <div className="camper_item__body_header">
           <div className="camper_item__body_header_main">
@@ -45,7 +48,7 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
           </div>
           <div className="camper_item__body_header_additional">
             <div className="camper_item__body_header_additional_container">
-              <Icon name="star" width="16" height="16" />
+              <Icon className="camper_item__body_header_additional_container_icon" name="star" width="16" height="16" />
               <p className="camper_item__body_header_additional_review_text">
                 {rating}({reviews.length} Reviews)
               </p>
@@ -57,8 +60,8 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
           </div>
         </div>
         <p className="camper_item__body_text">{description}</p>
-        <CamperItemDetails camper={camper} fullList={false} />
-        <Button styles='btn_main'>Show more</Button>
+        <CamperDetails adults={adults} details={details} fullList={false} />
+        <Button className='btn_main' onClick={handleClickShowMore}>Show more</Button>
       </div>
     </li>
   );

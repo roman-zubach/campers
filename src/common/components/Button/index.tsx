@@ -4,13 +4,14 @@ import './assets/index.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
-  styles: string,
+  className: string,
   type?: "button" | "submit",
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, styles, type = "button", onClick }) => {
+export const Button: React.FC<ButtonProps> = ({ children, className, type = "button", onClick, disabled }) => {
   return (
-    <button type={type} className={styles} onClick={onClick}>{children}</button>
+    <button type={type} className={className} onClick={onClick} disabled={disabled}>{children}</button>
   );
 };

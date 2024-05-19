@@ -1,0 +1,60 @@
+.camper_description_form {
+  width: 406px;
+  max-height: 522px;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  border: 1px solid $border-color;;
+  border-radius: 10px;
+  background-color: transparent;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &_title {
+      @extend .title_text;
+    }
+
+    &_description {
+      @extend .text;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex-grow: 1;
+
+    &_inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    &_input {
+      @extend .secondary_text;
+
+      width: calc(100% - 36px);
+      padding: 18px;
+
+      background-color: $cloud-color;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+
+      color: $label-color;
+    }
+
+    &_error {
+      color: $red-color;
+      font-size: 12px;
+    }
+  }
+}

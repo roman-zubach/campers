@@ -12,6 +12,7 @@ import {
 } from '@/features/camper/redux/selectors';
 
 import './assets/index.scss';
+import { CamperModal } from '@/features/camper/componetns';
 
 export const CamperList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -41,6 +42,7 @@ export const CamperList: React.FC = () => {
             )}
           </ul>
           <LoadMoreButton />
+          <CamperModal />
         </>
       )}
     </div>

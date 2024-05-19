@@ -17,7 +17,7 @@ export const LoadMoreButton: React.FC = () => {
 
   return (
     <div className="load_more_btn_container">
-      { canLoadMore && <Button styles="btn_secondary" onClick={handleClick}>Load more</Button> }
+      { canLoadMore && <Button className="btn_secondary" onClick={handleClick}>Load more</Button> }
     </div>
   );
 };

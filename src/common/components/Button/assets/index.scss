@@ -29,6 +29,11 @@
   &:focus {
     background-color: #D84343;
   }
+
+  &:disabled {
+    background-color: $cloud-color;
+    cursor: not-allowed;
+  }
 }
 
 .btn_secondary {

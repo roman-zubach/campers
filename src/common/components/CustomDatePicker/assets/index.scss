@@ -1,0 +1,120 @@
+.custom_date_picker {
+  position: relative;
+
+  &__input {
+    @extend .secondary_text;
+
+    width: 364px;
+    padding: 18px;
+
+    background-color: $cloud-color;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: $label-color;
+
+    &_icon{
+      position: absolute;
+
+      width: 20px;
+      height: 20px;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      stroke: $dark-color;
+
+      transition: stroke $transition;
+    }
+  }
+
+  &__calendar {
+    width: 303px;
+    height: 241px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: $white-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__error {
+    color: $red-color;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+
+.react-datepicker {
+  &__input-container {
+    position: relative;
+  }
+
+  &__month-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: $white-color;
+    border-bottom: none;
+  }
+
+  &__current-month {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  &__month {
+    margin: 0;
+  }
+
+  &__day-name,
+  &__time-name {
+    width: 41px;
+    height: 14px;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  &__day-names,
+  &__week {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__day {
+    width: 41px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white-color;
+    }
+
+    &--selected {
+      background-color: $white-color;
+      color: $dark-color;
+    }
+
+    &--today {
+      border: 1px solid $dark-color;
+    }
+  }
+
+  &__navigation {
+    top: 20px;
+  }
+}

@@ -6,9 +6,10 @@
   justify-content: center;
   align-items: center;
 
-  outline: 1px solid rgba(16, 24, 40, 0.2);
+  outline: 1px solid $border-color;;
   border-radius: 10px;
   transition: outline-color $transition;
+  cursor: pointer;
 
   &.active {
     outline-color: $red-color;
@@ -24,9 +25,10 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    cursor: pointer;
 
     &_text {
-      @extend .secondary-text;
+      @extend .secondary_text;
 
       text-align: center;
     }

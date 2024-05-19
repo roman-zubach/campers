@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '@/common/components/Icon';
+import { Icon } from '@/common/components';
 
 import './assets/index.scss';
 
@@ -10,8 +10,8 @@ type Props = {
   value: string | number;
 }
 
-export const CamperItemDetailsItem: React.FC<Props> = ({ text, svg, showValue, value }) => (
-  <div className="camper_item_details_item">
+export const CamperDetailsItem: React.FC<Props> = ({ text, svg, showValue, value }) => (
+  <div className="camper_details_item">
     <Icon name={svg} width="20" height="20" />
     {showValue && value} {text}
   </div>

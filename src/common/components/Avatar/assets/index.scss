@@ -1,0 +1,16 @@
+.avatar {
+  @extend .title_text;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $cloud-color;
+  border-radius: 50%;
+
+  color: $red-color;
+  text-transform: uppercase;
+}
