@@ -1,6 +1,6 @@
 .camper_description_form {
   width: 406px;
-  max-height: 522px;
+  max-height: 542px;
   padding: 20px;
 
   display: flex;
@@ -22,6 +22,8 @@
 
     &_description {
       @extend .text;
+
+      color: $grey-color;
     }
   }
 
@@ -48,6 +50,7 @@
       border-radius: 10px;
       border: none;
       outline: none;
+      font-family: inherit;
 
       color: $label-color;
     }
