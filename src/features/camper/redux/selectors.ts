@@ -1,18 +1,20 @@
 import { RootState } from '@/redux/store';
 import { createSelector } from '@reduxjs/toolkit';
+import { ITEMS_PER_PAGE } from '@/features/camper/componetns/CamperList/constants';
 
 export const selectCampers = (state: RootState) => state.camper.items;
 export const selectIsLoading = (state: RootState) => state.camper.isLoading;
 export const selectError = (state: RootState) => state.camper.error;
 export const selectFilters = (state: RootState) => state.camper.filters;
 export const selectFavoriteCampers = (state: RootState) => state.camper.favoriteItems;
+export const selectPage = (state: RootState) => state.camper.page;
 
 export const selectIsFavorite = (id: string) => createSelector(
   [selectFavoriteCampers],
   (favoriteCampers) => favoriteCampers.some((camper) => camper._id === id)
 );
 
-export const selectFilteredContacts = createSelector(
+export const selectFilteredCampers = createSelector(
   [selectCampers, selectFilters],
   (campers, {location: filterLocation, automatic, form: filterForm, kitchen, shower , tv, ac}) => {
     return campers.filter(({location, transmission, form, details}) => {
@@ -28,3 +30,15 @@ export const selectFilteredContacts = createSelector(
     });
   }
 );
+
+export const selectPaginatedCampers = createSelector(
+  [selectFilteredCampers, selectPage],
+  (campers, page) => campers.slice(0, page * ITEMS_PER_PAGE),
+);
+
+export const selectCanLoadMore = createSelector(
+  [selectFilteredCampers, selectPage],
+  (campers, page) => {
+    return campers.length > page * ITEMS_PER_PAGE;
+  }
+)

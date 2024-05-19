@@ -5,7 +5,7 @@ import { AxiosError } from 'axios';
 import { Camper } from '@/features/camper/types';
 
 export const fetchCampers = createAsyncThunk<Camper[], void, { rejectValue: string }>(
-  'campers/fetchAll',
+  'camper/fetchAll',
   async (_, thunkAPI) => {
     try {
       return await getCampersApi();

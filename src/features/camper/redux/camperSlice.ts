@@ -20,6 +20,7 @@ type CamperState = {
   favoriteItems: Camper[];
   isLoading: boolean;
   error: string | null;
+  page: number;
   filters: CamperFilerState,
 }
 
@@ -28,6 +29,7 @@ const initialState: CamperState = {
   favoriteItems: [],
   isLoading: false,
   error: null,
+  page: 1,
   filters: {
     location: "",
     ac: false,
@@ -66,15 +68,18 @@ const camperSlice = createSlice({
     removeFavoriteAction: (state, { payload }) => {
       state.favoriteItems = state.favoriteItems.filter(el => el._id !== payload);
     },
+    increasePageAction: (state) => {
+      state.page += 1;
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.fulfilled, (state, action: PayloadAction<Camper[]>) => {
         state.items = action.payload;
-        handleFulfilled(state);
       })
-      .addCase(fetchCampers.pending, handlePending)
-      .addCase(fetchCampers.rejected, handleRejected);
+      .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
+      .addMatcher((action) => action.type.endsWith('/rejected'), handleRejected)
+      .addMatcher((action) => action.type.endsWith('/fulfilled'), handleFulfilled);
   },
 });
 
@@ -82,6 +87,7 @@ export const {
   updateFilterAction,
   addFavoriteAction,
   removeFavoriteAction,
+  increasePageAction,
 } = camperSlice.actions;
 
 const camperConfig = {

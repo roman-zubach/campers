@@ -3,16 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch } from '@/redux/store';
 import { fetchCampers } from '@/features/camper/redux/operations';
-import { Loader } from '@/common/components';
-import { CamperItem } from './components';
-import { selectError, selectFilteredContacts, selectIsLoading } from '@/features/camper/redux/selectors';
+import { Loader, ErrorMessage, NotFoundMessage } from '@/common/components';
+import { CamperItem, LoadMoreButton } from './components';
+import {
+  selectError,
+  selectIsLoading,
+  selectPaginatedCampers,
+} from '@/features/camper/redux/selectors';
 
 import './assets/index.scss';
 
 export const CamperList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const campers = useSelector(selectFilteredContacts);
+  const campers = useSelector(selectPaginatedCampers);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -21,11 +25,24 @@ export const CamperList: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <ul className="camper_list">
-      <p></p>
+    <div className="camper_list">
       {isLoading && <Loader />}
-      {error && <p>error</p>}
-      {campers.length && campers.map((camper) => <CamperItem camper={camper} key={camper._id} />)}
-    </ul>
+      {error ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <ul className="camper_list__items">
+            {campers.length > 0 ? (
+              campers.map((camper) => (
+                <CamperItem camper={camper} key={camper._id} />
+              ))
+            ) : (
+              <NotFoundMessage />
+            )}
+          </ul>
+          <LoadMoreButton />
+        </>
+      )}
+    </div>
   );
 };
