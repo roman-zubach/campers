@@ -25,6 +25,16 @@ type CamperState = {
   filters: CamperFilerState,
 }
 
+const filterInitialState: CamperFilerState = {
+  location: "",
+  ac: false,
+  automatic: false,
+  kitchen: false,
+  tv: false,
+  shower: false,
+  form: "",
+};
+
 const initialState: CamperState = {
   campers: [],
   favoriteCampers: [],
@@ -32,15 +42,7 @@ const initialState: CamperState = {
   isLoading: false,
   error: null,
   page: 1,
-  filters: {
-    location: "",
-    ac: false,
-    automatic: false,
-    kitchen: false,
-    tv: false,
-    shower: false,
-    form: "",
-  },
+  filters: filterInitialState,
 };
 
 const handlePending = (state: CamperState) => {
@@ -63,6 +65,9 @@ const camperSlice = createSlice({
   reducers: {
     updateFilterAction: (state, { payload }) => {
       state.filters = payload;
+    },
+    resetFilterAction: (state) => {
+      state.filters = filterInitialState;
     },
     addFavoriteAction: (state, { payload }) => {
       state.favoriteCampers.push(payload);
@@ -94,6 +99,7 @@ export const {
   removeFavoriteAction,
   increasePageAction,
   setSelectCamperAction,
+  resetFilterAction,
 } = camperSlice.actions;
 
 const camperConfig = {

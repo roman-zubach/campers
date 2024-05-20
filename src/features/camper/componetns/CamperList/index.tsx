@@ -13,6 +13,7 @@ import {
 
 import './assets/index.scss';
 import { CamperModal } from '@/features/camper/componetns';
+import { resetFilterAction } from '@/features/camper/redux/camperSlice';
 
 export const CamperList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,6 +23,7 @@ export const CamperList: React.FC = () => {
   const error = useSelector(selectError);
 
   useEffect(() => {
+    dispatch(resetFilterAction());
     dispatch(fetchCampers());
   }, [dispatch]);
 

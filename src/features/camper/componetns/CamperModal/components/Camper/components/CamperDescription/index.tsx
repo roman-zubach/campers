@@ -1,36 +1,21 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Camper } from '@/features/camper/types';
 import { Button } from '@/common/components';
 import { CamperDescriptionFeature, CamperDescriptionReview } from './components';
 import { AppDispatch } from '@/redux/store';
-import { selectSelectedCamper } from '@/features/camper/redux/selectors';
 import { bookCamperAction } from '@/features/booking/redux/bookingSlice';
 import { BookingCamperForm } from '@/features/booking/components';
 import { BookingCamperFormValues } from '@/features/booking/types';
 
 import './assets/index.scss';
 
-type Props = Pick<
-  Camper,
-  'description' | 'reviews' | 'form' | 'length' | 'width' | 'height' | 'details' | 'tank' | 'adults' | 'consumption'
->;
+type Props = {
+  camper: Camper;
+}
 
-export const CamperDescription: React.FC<Props> = ({
- description,
- reviews,
- adults,
- length,
- tank,
- details,
- form,
- height,
- width,
- consumption,
-}) => {
+export const CamperDescription: React.FC<Props> = ({ camper }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const camper = useSelector(selectSelectedCamper);
-
   const [activeButton, setActiveButton] = useState('Features');
 
   const handleButtonClick = (buttonName: string) => {
@@ -44,6 +29,19 @@ export const CamperDescription: React.FC<Props> = ({
 
     dispatch(bookCamperAction({ camper, ...data, date: dateTimestamp }));
   };
+
+  const {
+    description,
+    reviews,
+    adults,
+    length,
+    tank,
+    details,
+    form,
+    height,
+    width,
+    consumption,
+  } = camper;
 
   return (
     <div className="camper_description">

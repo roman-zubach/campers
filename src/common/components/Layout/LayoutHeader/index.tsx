@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { routePaths } from '@/routing/constants';
 
 import './assets/index.scss';
-import { routePaths } from '@/routing/constants';
 
 export const LayoutHeader: React.FC = () => {
   return (

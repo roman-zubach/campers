@@ -10,7 +10,7 @@ export type BookedCamper = {
 }
 
 export type BookingCamperFormValues = {
-  name: string;
+  userName: string;
   email: string;
   date: Date | string;
   comment?: string;

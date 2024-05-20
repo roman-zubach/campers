@@ -29,6 +29,8 @@ Build production
 
 * npm run build
 
+## GitHub
+
 Deploy `GitHub` pages
 
 * npm run deploy

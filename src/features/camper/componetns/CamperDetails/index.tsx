@@ -1,10 +1,6 @@
 import React from 'react';
 import { Camper } from '@/features/camper/types';
-import {
-  FullCamperDetailsMap,
-  ShortCamperDetailsMap,
-} from '@/features/camper/componetns/CamperDetails/constants';
-
+import { FullCamperDetailsMap, ShortCamperDetailsMap } from './constants';
 import { CamperDetailsItem } from './components';
 
 import './assets/index.scss';

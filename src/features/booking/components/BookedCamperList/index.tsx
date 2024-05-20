@@ -6,7 +6,7 @@ import { BookedCamperItem } from './components';
 
 import './assets/index.scss';
 
-export const BookedCamperList = () => {
+export const BookedCamperList: React.FC = () => {
   const bookedCampers = useSelector(selectSortedBookedCampers);
 
   return (

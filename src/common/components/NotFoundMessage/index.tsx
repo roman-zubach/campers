@@ -3,7 +3,7 @@ import { Icon } from '@/common/components';
 
 import './assets/index.scss';
 
-export const NotFoundMessage = () => {
+export const NotFoundMessage: React.FC = () => {
   return (
     <div className="not_found_message">
       <Icon className="not_found_message__icon" name="not_found" width="32" height="32" />

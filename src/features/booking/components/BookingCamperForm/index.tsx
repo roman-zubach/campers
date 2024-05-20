@@ -7,14 +7,14 @@ import { BookingCamperFormValues } from '@/features/booking/types';
 import './assets/index.scss';
 
 const initialValues: BookingCamperFormValues = {
-  name: '',
+  userName: '',
   email: '',
   date: '',
   comment: '',
 };
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
+  userName: Yup.string().required('Name is required'),
   email: Yup.string().email('Invalid email format').required('Email is required'),
   date: Yup.date().required('Date is required').min(new Date(), 'Date must be in the future'),
   comment: Yup.string(),
@@ -48,13 +48,13 @@ export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
             <div className="booking_camper_form__body_inputs">
               <div className="booking_camper_form__body_inputs_group">
                 <Field
-                  name="name"
+                  name="userName"
                   type="text"
                   className="booking_camper_form__body_input"
                   placeholder="Name"
                 />
-                {touched.name && errors.name && (
-                  <div className="booking_camper_form__body_error">{errors.name}</div>
+                {touched.userName && errors.userName && (
+                  <div className="booking_camper_form__body_error">{errors.userName}</div>
                 )}
               </div>
 

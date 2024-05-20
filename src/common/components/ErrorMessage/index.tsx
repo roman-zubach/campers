@@ -3,7 +3,7 @@ import { Icon } from '@/common/components';
 
 import './assets/index.scss';
 
-export const ErrorMessage = () => {
+export const ErrorMessage: React.FC = () => {
   return (
     <div className="error_message">
       <Icon className="error_message__icon" name="error" width="40" height="40" />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { CheckboxesFiltersItems, RadioFiltersItems} from './types';
-import { CamperSearchFormFiltersItem, CamperSearchFormFiltersItemsGroup } from './components';
+import { CamperSearchFormFiltersItemsGroup } from './components';
 
 import './assert/index.scss';
 

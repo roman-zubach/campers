@@ -21,7 +21,7 @@ export const Camper: React.FC<Props> = ({ camper }) => {
         location={location}
       />
       <CamperGallery images={camper.gallery} />
-      <CamperDescription {...camper} />
+      <CamperDescription camper={camper} />
     </div>
   );
 };
