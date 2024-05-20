@@ -26,11 +26,10 @@ export const CustomDatePicker: React.FC<Props> = ({ name, placeholderText }) => 
         className="custom_date_picker__input"
         calendarClassName="custom_date_picker__calendar"
         formatWeekDay={(nameOfDay: string) => nameOfDay.substring(0, 3).toUpperCase()}
+        minDate={new Date()}
+        autoComplete="off"
       />
       <Icon name="date" width="20" height="20" className="custom_date_picker__input_icon" />
-      {meta.touched && meta.error && (
-        <div className="custom_date_picker__error">{meta.error}</div>
-      )}
     </div>
   );
 };

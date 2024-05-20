@@ -1,0 +1,39 @@
+.thank_you_message {
+  @extend .title_text;
+
+  position: absolute;
+  top: 30%;
+  right: 50%;
+  transform: translate(50%);
+
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  background-color: #d4edda;
+
+  color: #155724;
+
+  animation: fadeOut 5s linear forwards;
+
+  &__icon {
+    fill: $red-color;
+    stroke: $red-color;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -13,7 +13,7 @@
     outline: none;
     color: $label-color;
 
-    &_icon{
+    &_icon {
       position: absolute;
 
       width: 20px;
@@ -28,19 +28,14 @@
 
   &__calendar {
     width: 303px;
-    height: 241px;
     padding: 16px;
+
     display: flex;
     flex-direction: column;
+
     background-color: $white-color;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  &__error {
-    color: $red-color;
-    font-size: 12px;
-    margin-top: 5px;
   }
 }
 

@@ -1,7 +1,9 @@
 .booking_camper_form {
-  width: 406px;
-  max-height: 542px;
-  padding: 20px;
+  position: relative;
+
+  width: 400px;
+  height: 492px;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
@@ -19,7 +21,7 @@
     gap: 8px;
 
     &_title {
-      @extend .title_text;
+      @extend .secondary_title_text;
     }
 
     &_description {
@@ -57,7 +59,12 @@
       color: $label-color;
     }
 
+    &_body_inputs_group {
+      position: relative;
+    }
+
     &_error {
+      position: absolute;
       color: $red-color;
       font-size: 12px;
     }

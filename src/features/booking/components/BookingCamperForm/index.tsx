@@ -1,8 +1,9 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { Button, CustomDatePicker } from '@/common/components';
+import { Button, CustomDatePicker, ThankYouMessage } from '@/common/components';
 import { BookingCamperFormValues } from '@/features/booking/types';
+import { useSuccessMessage } from '@/common/hooks/useSuccessMessage';
 
 import './assets/index.scss';
 
@@ -25,6 +26,8 @@ type Props = {
 }
 
 export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
+  const { isSubmitted, setIsSubmitted } = useSuccessMessage();
+
   return (
     <div className="booking_camper_form">
       <div className="booking_camper_form__header">
@@ -40,6 +43,7 @@ export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
         onSubmit={(data, { resetForm ,setSubmitting }) => {
           onSubmit(data);
           setSubmitting(false);
+          setIsSubmitted(true);
           resetForm();
         }}
       >
@@ -72,6 +76,9 @@ export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
 
               <div className="booking_camper_form__body_inputs_group">
                 <CustomDatePicker name="date" placeholderText="Booking date" />
+                {touched.date && errors.date && (
+                  <div className="booking_camper_form__body_error">{errors.date}</div>
+                )}
               </div>
 
               <div className="booking_camper_form__body_inputs_group">
@@ -93,6 +100,7 @@ export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
           </Form>
         )}
       </Formik>
+      {isSubmitted && <ThankYouMessage />}
     </div>
   );
 };
