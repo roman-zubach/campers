@@ -6,6 +6,8 @@
 
   &__title {
     @extend .title_text;
+
+    color: $dark-color;
   }
 
   &__container {

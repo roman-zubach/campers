@@ -9,6 +9,8 @@
 
     &_text {
       @extend .title_text;
+
+      color: $dark-color;
     }
 
     &_close_btn {
@@ -72,6 +74,8 @@
 
     &_price {
       @extend .title_text;
+
+      color: $dark-color;
     }
   }
 }

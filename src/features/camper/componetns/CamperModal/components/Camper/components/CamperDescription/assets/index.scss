@@ -30,6 +30,8 @@
       border: none;
       cursor: pointer;
 
+      color: $dark-color;
+
       &.active {
         &::after {
           content: "";
