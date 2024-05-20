@@ -13,7 +13,7 @@ export const BookedCamperItem: React.FC<Props> = ({ bookedCamper}) => {
   const {camper: {name, gallery, price, location}, date, comment} = bookedCamper;
 
   return (
-    <div className={`booked_camper_item ${isCurrentDateLessThanValue(date) ? 'disabled' : 'disabled'}`}>
+    <div className={`booked_camper_item ${isCurrentDateLessThanValue(date) ? '' : 'disabled'}`}>
       <h2 className="booked_camper_item__date">{formatUTCDateToString(date)}</h2>
         <Image src={gallery[0]} alt={name} className="booked_camper_item__img" />
       <div className="booked_camper_item__details">
