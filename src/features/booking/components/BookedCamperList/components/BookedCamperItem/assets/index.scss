@@ -1,0 +1,52 @@
+.booked_camper_item {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+
+  &.disabled {
+    background-color: $cloud-color;
+    color: $grey-color;
+  }
+
+  &__date {
+    @extend .title_text;
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  &__details {
+    @extend .text;
+
+    display: flex;
+    justify-content: space-between;
+
+    &_header {
+      display: flex;
+      flex-direction: column;
+
+      &_location {
+        @extend .secondary_text;
+
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        color: $grey-color;
+      }
+    }
+  }
+
+  &__comment {
+    font-size: 1em;
+    color: #666;
+  }
+}

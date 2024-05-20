@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Camper } from '@/features/camper/types';
 import { CamperDetails } from '@/features/camper/componetns';
-import { Button, Icon, Image } from '@/common/components';
+import { Button, Icon, Image, Location } from '@/common/components';
 import { FavoriteButton } from './components';
 import { AppDispatch } from '@/redux/store';
 import { addFavoriteAction, removeFavoriteAction, setSelectCamperAction } from '@/features/camper/redux/camperSlice';
@@ -53,10 +53,7 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
                 {rating}({reviews.length} Reviews)
               </p>
             </div>
-            <p className="camper_item__body_header_additional_container">
-              <Icon name="map-pin" width="16" height="16" />
-              {location}
-            </p>
+            <Location name={location} className="camper_item__body_header_additional_container" />
           </div>
         </div>
         <p className="camper_item__body_text">{description}</p>

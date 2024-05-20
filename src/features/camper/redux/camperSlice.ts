@@ -3,7 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { fetchCampers } from './operations';
-import { BookedCamper, Camper, CamperForm } from '@/features/camper/types';
+import { Camper, CamperForm } from '@/features/camper/types';
 
 type CamperFilerState = {
   location: string;
@@ -23,13 +23,11 @@ type CamperState = {
   error: string | null;
   page: number;
   filters: CamperFilerState,
-  bookedCampers: BookedCamper[],
 }
 
 const initialState: CamperState = {
   campers: [],
   favoriteCampers: [],
-  bookedCampers: [],
   selectedCamper: null,
   isLoading: false,
   error: null,
@@ -78,9 +76,6 @@ const camperSlice = createSlice({
     setSelectCamperAction: (state, { payload }) => {
       state.selectedCamper = payload;
     },
-    bookCamperAction: (state, { payload }) => {
-      state.bookedCampers.push(payload);
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -99,13 +94,12 @@ export const {
   removeFavoriteAction,
   increasePageAction,
   setSelectCamperAction,
-  bookCamperAction,
 } = camperSlice.actions;
 
 const camperConfig = {
   key: 'camper',
   storage,
-  whitelist: ['favoriteItems', 'bookedCampers'],
+  whitelist: ['favoriteCampers'],
 };
 
 export const camperReducer = persistReducer(camperConfig, camperSlice.reducer);

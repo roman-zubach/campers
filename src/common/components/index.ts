@@ -7,3 +7,4 @@ export * from './Icon';
 export * from './Image';
 export * from './Avatar';
 export * from './CustomDatePicker';
+export * from './Location';

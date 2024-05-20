@@ -3,13 +3,13 @@ import { CamperList, CamperSearchForm } from '@/features/camper/componetns';
 
 import './assets/index.scss';
 
-const Catalog = () => {
+const CatalogPage: React.FC = () => {
   return (
-    <div className="catalog">
+    <div className="catalog_page">
       <CamperSearchForm />
       <CamperList />
     </div>
   );
 };
 
-export default Catalog;
+export default CatalogPage;

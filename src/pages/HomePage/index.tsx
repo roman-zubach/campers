@@ -4,7 +4,7 @@ import { HomePageAbout, HomePageContact, HomePageHero, HomePageService } from '@
 
 import './assets/index.css';
 
-const HomePage = () => (
+const HomePage: React.FC = () => (
   <div>
     <HomePageHero />
     <HomePageService />

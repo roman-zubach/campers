@@ -2,14 +2,11 @@ import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Button, CustomDatePicker } from '@/common/components';
-
-import {
-  CamperDescriptionFormValues
-} from '@/features/camper/componetns/CamperModal/components/Camper/components/CamperDescription/types';
+import { BookingCamperFormValues } from '@/features/booking/types';
 
 import './assets/index.scss';
 
-const initialValues: CamperDescriptionFormValues = {
+const initialValues: BookingCamperFormValues = {
   name: '',
   email: '',
   date: '',
@@ -24,15 +21,15 @@ const validationSchema = Yup.object().shape({
 });
 
 type Props = {
-  onSubmit: (data: CamperDescriptionFormValues) => void;
+  onSubmit: (data: BookingCamperFormValues) => void;
 }
 
-export const CamperDescriptionForm: React.FC<Props> = ({ onSubmit }) => {
+export const BookingCamperForm: React.FC<Props> = ({ onSubmit }) => {
   return (
-    <div className="camper_description_form">
-      <div className="camper_description_form__header">
-        <h3 className="camper_description_form__header_title">Book your campervan now</h3>
-        <p className="camper_description_form__header_description">
+    <div className="booking_camper_form">
+      <div className="booking_camper_form__header">
+        <h3 className="booking_camper_form__header_title">Book your campervan now</h3>
+        <p className="booking_camper_form__header_description">
           Stay connected! We are always ready to help you.
         </p>
       </div>
@@ -47,46 +44,46 @@ export const CamperDescriptionForm: React.FC<Props> = ({ onSubmit }) => {
         }}
       >
         {({ isSubmitting, touched, errors }) => (
-          <Form className="camper_description_form__body">
-            <div className="camper_description_form__body_inputs">
-              <div className="camper_description_form__body_inputs_group">
+          <Form className="booking_camper_form__body">
+            <div className="booking_camper_form__body_inputs">
+              <div className="booking_camper_form__body_inputs_group">
                 <Field
                   name="name"
                   type="text"
-                  className="camper_description_form__body_input"
+                  className="booking_camper_form__body_input"
                   placeholder="Name"
                 />
                 {touched.name && errors.name && (
-                  <div className="camper_description_form__body_error">{errors.name}</div>
+                  <div className="booking_camper_form__body_error">{errors.name}</div>
                 )}
               </div>
 
-              <div className="camper_description_form__body_inputs_group">
+              <div className="booking_camper_form__body_inputs_group">
                 <Field
                   name="email"
                   type="email"
-                  className="camper_description_form__body_input"
+                  className="booking_camper_form__body_input"
                   placeholder="Email"
                 />
                 {touched.email && errors.email && (
-                  <div className="camper_description_form__body_error">{errors.email}</div>
+                  <div className="booking_camper_form__body_error">{errors.email}</div>
                 )}
               </div>
 
-              <div className="camper_description_form__body_inputs_group">
+              <div className="booking_camper_form__body_inputs_group">
                 <CustomDatePicker name="date" placeholderText="Booking date" />
               </div>
 
-              <div className="camper_description_form__body_inputs_group">
+              <div className="booking_camper_form__body_inputs_group">
                 <Field
                   name="comment"
                   as="textarea"
                   rows="4"
-                  className="camper_description_form__body_input"
+                  className="booking_camper_form__body_input"
                   placeholder="Comment"
                 />
                 {touched.comment && errors.comment && (
-                  <div className="camper_description_form__body_error">{errors.comment}</div>
+                  <div className="booking_camper_form__body_error">{errors.comment}</div>
                 )}
               </div>
             </div>

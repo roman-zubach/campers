@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Camper } from '@/features/camper/types';
 import { Button } from '@/common/components';
-import { CamperDescriptionFeature, CamperDescriptionForm, CamperDescriptionReview } from './components';
-
-import {
-  CamperDescriptionFormValues,
-} from '@/features/camper/componetns/CamperModal/components/Camper/components/CamperDescription/types';
+import { CamperDescriptionFeature, CamperDescriptionReview } from './components';
 import { AppDispatch } from '@/redux/store';
 import { selectSelectedCamper } from '@/features/camper/redux/selectors';
-import { bookCamperAction } from '@/features/camper/redux/camperSlice';
+import { bookCamperAction } from '@/features/booking/redux/bookingSlice';
+import { BookingCamperForm } from '@/features/booking/components';
+import { BookingCamperFormValues } from '@/features/booking/types';
 
 import './assets/index.scss';
 
@@ -39,7 +37,7 @@ export const CamperDescription: React.FC<Props> = ({
     setActiveButton(buttonName);
   };
 
-  const handleSubmit = (data: CamperDescriptionFormValues) => {
+  const handleSubmit = (data: BookingCamperFormValues) => {
     const dateTimestamp = typeof data.date === 'string'
       ? new Date(data.date).getTime()
       : data.date.getTime();
@@ -79,7 +77,7 @@ export const CamperDescription: React.FC<Props> = ({
           :
           <CamperDescriptionReview reviews={reviews} />
         }
-        <CamperDescriptionForm onSubmit={handleSubmit} />
+        <BookingCamperForm onSubmit={handleSubmit} />
       </div>
     </div>
   );

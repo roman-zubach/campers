@@ -33,6 +33,7 @@
       top: 50%;
       transform: translateY(-50%);
       stroke: $grey-color;
+      fill: none;
 
       transition: stroke $transition;
     }

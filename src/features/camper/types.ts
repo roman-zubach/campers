@@ -45,11 +45,3 @@ export type CamperReview = {
   reviewer_rating: number;
   comment: string;
 };
-
-export type BookedCamper = {
-  camper: Camper;
-  userName: string;
-  email: string;
-  date: number;
-  comment?: string;
-}

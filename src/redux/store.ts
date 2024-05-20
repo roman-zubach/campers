@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { camperReducer } from '@/features/camper/redux/camperSlice';
 import { FLUSH, PAUSE, PERSIST, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+
+import { camperReducer } from '@/features/camper/redux/camperSlice';
+import { bookingReducer } from '@/features/booking/redux/bookingSlice';
 
 const reducer = {
   camper: camperReducer,
+  booking: bookingReducer,
 }
 
 export const store = configureStore({

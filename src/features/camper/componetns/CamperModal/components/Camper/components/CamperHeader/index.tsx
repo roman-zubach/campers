@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from '@/common/components';
+import { Button, Icon, Location } from '@/common/components';
 import { useModalClose } from '@/features/camper/componetns/CamperModal/hooks/useModalClose';
 
 import './assets/index.scss';
@@ -31,10 +31,7 @@ export const CamperHeader: React.FC<Props> = ({ name, rating, reviewCount, locat
               {rating}({reviewCount} Reviews)
             </p>
           </div>
-          <div className="camper_header__content_rating_container_group">
-            <Icon name="map-pin" width="16" height="16" />
-            {location}
-          </div>
+        <Location name={location} className="camper_header__content_rating_container_group" />
         </div>
         <p className="camper_header__content_price">€{price}</p>
       </div>

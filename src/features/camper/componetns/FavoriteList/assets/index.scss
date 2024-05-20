@@ -1,0 +1,13 @@
+.favorite_list {
+  width: 888px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+}
