@@ -2,110 +2,113 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { fetchCampers } from './operations';
-import { Camper, CamperForm } from '@/features/camper/types';
-
-type CamperFilerState = {
-  location: string;
-  ac: boolean;
-  automatic: boolean;
-  kitchen: boolean;
-  tv: boolean;
-  shower: boolean;
-  form: CamperForm | "";
-}
+import { INITIAL_FILTERS } from '@/features/camper/constants';
+import { Camper, CamperFilters } from '@/features/camper/types';
+import { fetchCamperById, fetchCampers } from './operations';
 
 type CamperState = {
-  campers: Camper[];
-  favoriteCampers: Camper[];
-  selectedCamper: Camper | null;
+  items: Camper[];
+  total: number;
+  page: number;
+  filters: CamperFilters;
   isLoading: boolean;
   error: string | null;
-  page: number;
-  filters: CamperFilerState,
-}
-
-const filterInitialState: CamperFilerState = {
-  location: "",
-  ac: false,
-  automatic: false,
-  kitchen: false,
-  tv: false,
-  shower: false,
-  form: "",
+  /** Id of the latest list request — responses of outdated requests are ignored. */
+  requestId: string | null;
+  favorites: string[];
+  current: Camper | null;
+  isCurrentLoading: boolean;
+  currentError: string | null;
 };
 
 const initialState: CamperState = {
-  campers: [],
-  favoriteCampers: [],
-  selectedCamper: null,
+  items: [],
+  total: 0,
+  page: 1,
+  filters: INITIAL_FILTERS,
   isLoading: false,
   error: null,
-  page: 1,
-  filters: filterInitialState,
+  requestId: null,
+  favorites: [],
+  current: null,
+  isCurrentLoading: false,
+  currentError: null,
 };
 
-const handlePending = (state: CamperState) => {
-  state.isLoading = true;
+/** Drops previous search results so the list always matches the filters. */
+const resetResults = (state: CamperState) => {
+  state.items = [];
+  state.total = 0;
+  state.page = 1;
   state.error = null;
-};
-
-const handleRejected = (state: CamperState, action: PayloadAction<any>) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
-
-const handleFulfilled = (state: CamperState) => {
-  state.isLoading = false;
 };
 
 const camperSlice = createSlice({
   name: 'camper',
   initialState,
   reducers: {
-    updateFilterAction: (state, { payload }) => {
+    setFilters: (state, { payload }: PayloadAction<CamperFilters>) => {
       state.filters = payload;
+      resetResults(state);
     },
-    resetFilterAction: (state) => {
-      state.filters = filterInitialState;
+    resetFilters: state => {
+      state.filters = INITIAL_FILTERS;
+      resetResults(state);
     },
-    addFavoriteAction: (state, { payload }) => {
-      state.favoriteCampers.push(payload);
-    },
-    removeFavoriteAction: (state, { payload }) => {
-      state.favoriteCampers = state.favoriteCampers.filter(el => el._id !== payload);
-    },
-    increasePageAction: (state) => {
-      state.page += 1;
-    },
-    setSelectCamperAction: (state, { payload }) => {
-      state.selectedCamper = payload;
+    toggleFavorite: (state, { payload }: PayloadAction<string>) => {
+      state.favorites = state.favorites.includes(payload)
+        ? state.favorites.filter(id => id !== payload)
+        : [...state.favorites, payload];
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchCampers.fulfilled, (state, action: PayloadAction<Camper[]>) => {
-        state.campers = action.payload;
+      .addCase(fetchCampers.pending, (state, { meta }) => {
+        state.isLoading = true;
+        state.error = null;
+        state.requestId = meta.requestId;
       })
-      .addMatcher((action) => action.type.endsWith('/pending'), handlePending)
-      .addMatcher((action) => action.type.endsWith('/rejected'), handleRejected)
-      .addMatcher((action) => action.type.endsWith('/fulfilled'), handleFulfilled);
+      .addCase(fetchCampers.fulfilled, (state, { payload, meta }) => {
+        if (state.requestId !== meta.requestId) return;
+
+        const page = meta.arg;
+        state.items =
+          page === 1 ? payload.items : [...state.items, ...payload.items];
+        state.total = payload.total;
+        state.page = page;
+        state.isLoading = false;
+      })
+      .addCase(fetchCampers.rejected, (state, { payload, error, meta }) => {
+        if (state.requestId !== meta.requestId) return;
+
+        state.isLoading = false;
+        state.error = payload ?? error.message ?? 'Something went wrong';
+      })
+      .addCase(fetchCamperById.pending, state => {
+        state.current = null;
+        state.isCurrentLoading = true;
+        state.currentError = null;
+      })
+      .addCase(fetchCamperById.fulfilled, (state, { payload }) => {
+        state.current = payload;
+        state.isCurrentLoading = false;
+      })
+      .addCase(fetchCamperById.rejected, (state, { payload, error }) => {
+        state.isCurrentLoading = false;
+        state.currentError = payload ?? error.message ?? 'Something went wrong';
+      });
   },
 });
 
-export const {
-  updateFilterAction,
-  addFavoriteAction,
-  removeFavoriteAction,
-  increasePageAction,
-  setSelectCamperAction,
-  resetFilterAction,
-} = camperSlice.actions;
+export const { setFilters, resetFilters, toggleFavorite } = camperSlice.actions;
 
-const camperConfig = {
+const camperPersistConfig = {
   key: 'camper',
   storage,
-  whitelist: ['favoriteCampers'],
+  whitelist: ['favorites'],
 };
 
-export const camperReducer = persistReducer(camperConfig, camperSlice.reducer);
+export const camperReducer = persistReducer(
+  camperPersistConfig,
+  camperSlice.reducer
+);
