@@ -6,15 +6,19 @@ import './assets/index.scss';
 
 type Props = {
   name: string;
-  width: string;
-  height: string;
+  size?: number;
   className?: string;
-}
-
-export const Icon: React.FC<Props> = ({name, width, height, className = ""}) => {
-  return (
-    <svg className={className || 'icon'} width={width} height={height}>
-      <use xlinkHref={`${sprite}#${name}`} />
-    </svg>
-  );
 };
+
+/** Icon from the SVG sprite. Colored via `currentColor`. */
+export const Icon: React.FC<Props> = ({ name, size = 20, className = '' }) => (
+  <svg
+    className={`icon ${className}`.trim()}
+    width={size}
+    height={size}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <use href={`${sprite}#${name}`} />
+  </svg>
+);

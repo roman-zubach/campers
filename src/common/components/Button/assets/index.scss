@@ -1,55 +1,46 @@
 .btn {
-  height: 56px;
-  display: flex;
-  justify-content: center;
+  @include medium-text;
+
+  display: inline-flex;
   align-items: center;
-
-  font-weight: 500;
-  font-size: 16px;
-  font-family: inherit;
-  line-height: 1.5;
-  letter-spacing: -0.03em;
+  justify-content: center;
+  gap: 8px;
+  min-width: 166px;
+  height: 56px;
+  padding: 16px 40px;
+  border-radius: $radius-pill;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
   cursor: pointer;
-  border-radius: 200px;
-}
-
-.btn_main {
-  @extend .btn;
-
-  width: 173px;
-  background-color: $red-color;
-  border: none;
-
-  color: $white-color;
-
   transition:
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    background-color: #D84343;
-  }
+    background-color $transition,
+    border-color $transition,
+    color $transition;
 
   &:disabled {
-    background-color: $cloud-color;
+    opacity: 0.6;
     cursor: not-allowed;
   }
 }
 
-.btn_secondary {
-  @extend .btn;
+.btn_primary {
+  border: none;
+  background-color: $button-color;
+  color: $white-color;
 
-  width: 145px;
+  &:hover:not(:disabled),
+  &:focus-visible {
+    background-color: $button-hover-color;
+  }
+}
 
-  border: 1px solid $cloud-color;
+.btn_outline {
+  border: 1px solid $gray-light-color;
+  background-color: $white-color;
+  color: $main-color;
 
-  color: $dark-color;
-
-  transition:
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    border: 1px solid $red-color;
+  &:hover:not(:disabled),
+  &:focus-visible {
+    border-color: $button-hover-color;
   }
 }

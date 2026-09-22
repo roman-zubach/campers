@@ -1,0 +1,16 @@
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__star {
+    color: $rating-color;
+  }
+}
