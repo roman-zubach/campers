@@ -1,5 +1,5 @@
 export const routePaths = {
   home: (): string => '/',
   catalog: (): string => '/catalog',
-  favorites: (): string => '/favorites',
+  camper: (id: string = ':id'): string => `/catalog/${id}`,
 };

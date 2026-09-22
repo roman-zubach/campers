@@ -1,0 +1,17 @@
+.camper_reviews {
+  &__title {
+    @include title-text;
+
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__empty {
+    color: $text-color;
+  }
+}

@@ -1,47 +1,57 @@
-export type CamperForm = "alcove" | "fullyIntegrated" | "panelTruck";
-export type CamperTransmission = "manual" | "automatic";
+export type CamperForm = 'alcove' | 'fullyIntegrated' | 'panelTruck';
+export type CamperEngine = 'diesel' | 'petrol' | 'hybrid';
+export type CamperTransmission = 'automatic' | 'manual';
+
+export type EquipmentKey =
+  | 'AC'
+  | 'bathroom'
+  | 'kitchen'
+  | 'TV'
+  | 'radio'
+  | 'refrigerator'
+  | 'microwave'
+  | 'gas'
+  | 'water';
+
+export type GalleryImage = {
+  thumb: string;
+  original: string;
+};
+
+export type CamperReview = {
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+};
 
 export type Camper = {
-  _id: string;
+  id: string;
   name: string;
   price: number;
   rating: number;
   location: string;
-  adults: number;
-  children: number;
-  engine: string;
-  transmission: CamperTransmission;
+  description: string;
   form: CamperForm;
   length: string;
   width: string;
   height: string;
   tank: string;
   consumption: string;
-  description: string;
-  details: CamperDetails;
-  gallery: string[];
+  transmission: CamperTransmission;
+  engine: CamperEngine;
+  gallery: GalleryImage[];
   reviews: CamperReview[];
-}
+} & Record<EquipmentKey, boolean>;
 
-export type CamperDetails = {
-  airConditioner: number;
-  bathroom: number;
-  kitchen: number;
-  beds: number;
-  TV: number;
-  CD: number;
-  radio: number;
-  shower: number;
-  toilet: number;
-  freezer: number;
-  hob: number;
-  microwave: number;
-  gas: string;
-  water: string;
-}
+export type CampersResponse = {
+  total: number;
+  items: Camper[];
+};
 
-export type CamperReview = {
-  reviewer_name: string;
-  reviewer_rating: number;
-  comment: string;
+export type CamperFilters = {
+  location: string;
+  form: string;
+  engine: string;
+  transmission: string;
+  equipment: EquipmentKey[];
 };

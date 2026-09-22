@@ -1,0 +1,80 @@
+.filter_group {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  & + & {
+    margin-top: 24px;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    padding: 0;
+    color: $gray-color;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  &__input {
+    position: relative;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    border: 1px solid $gray-color;
+    background-color: $white-color;
+    appearance: none;
+    cursor: pointer;
+    transition:
+      border-color $transition,
+      background-color $transition;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      background-color: $text-color;
+      opacity: 0;
+      transition: opacity $transition;
+    }
+
+    &:checked::after {
+      opacity: 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      border-color: $main-color;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $button-color;
+      outline-offset: 2px;
+    }
+
+    &_radio,
+    &_radio::after {
+      border-radius: 50%;
+    }
+
+    &_checkbox {
+      border-radius: 6px;
+
+      &::after {
+        border-radius: 3px;
+      }
+    }
+  }
+}

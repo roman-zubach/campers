@@ -1,72 +1,31 @@
 .booking_camper_form {
-  position: relative;
-
-  width: 400px;
-  height: 492px;
-  padding: 24px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-
-  border: 1px solid $border-color;;
+  padding: 44px 56px;
+  border: 1px solid $gray-light-color;
   border-radius: 10px;
-  background-color: transparent;
 
-  color: $dark-color;
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    &_title {
-      @extend .secondary_title_text;
-    }
-
-    &_description {
-      @extend .text;
-
-      color: $grey-color;
-    }
+  @media (max-width: 767px) {
+    padding: 24px;
   }
 
-  &__body {
-    width: 100%;
+  &__title {
+    @include section-title-text;
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $gray-color;
+  }
+
+  &__form {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    flex-grow: 1;
+    gap: 14px;
+    margin-top: 24px;
+  }
 
-    &_inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    &_input {
-      @extend .secondary_text;
-
-      width: calc(100% - 36px);
-      padding: 18px;
-
-      background-color: $cloud-color;
-      border-radius: 10px;
-      border: none;
-      outline: none;
-      font-family: inherit;
-
-      color: $label-color;
-    }
-
-    &_body_inputs_group {
-      position: relative;
-    }
-
-    &_error {
-      position: absolute;
-      color: $red-color;
-      font-size: 12px;
-    }
+  &__submit {
+    width: 100%;
+    margin-top: 10px;
   }
 }

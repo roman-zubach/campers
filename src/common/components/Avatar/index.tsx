@@ -2,16 +2,12 @@ import React from 'react';
 
 import './assets/index.scss';
 
-type AvatarProps = {
-  userName: string;
+type Props = {
+  name: string;
 };
 
-export const Avatar: React.FC<AvatarProps> = ({ userName }) => {
-  const getFirstLetter = (name: string) => name.charAt(0);
-
-  return (
-    <div className="avatar">
-      {getFirstLetter(userName)}
-    </div>
-  );
-};
+export const Avatar: React.FC<Props> = ({ name }) => (
+  <span className="avatar" aria-hidden="true">
+    {name.charAt(0)}
+  </span>
+);

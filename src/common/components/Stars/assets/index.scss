@@ -1,0 +1,12 @@
+.stars {
+  display: flex;
+  gap: 4px;
+
+  &__star {
+    color: $badges-color;
+
+    &_active {
+      color: $rating-color;
+    }
+  }
+}

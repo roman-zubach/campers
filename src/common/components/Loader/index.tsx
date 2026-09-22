@@ -1,21 +1,26 @@
 import React from 'react';
-import { ThreeDots } from 'react-loader-spinner';
 
-import './assets/index.css';
+import './assets/index.scss';
 
-export const Loader: React.FC = () => {
-  return (
-    <div className="loader-container">
-      <ThreeDots
-        visible={true}
-        height="80"
-        width="80"
-        color="#E44848"
-        radius="9"
-        ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
+type Props = {
+  overlay?: boolean;
+};
+
+export const Loader: React.FC<Props> = ({ overlay = false }) =>
+  overlay ? (
+    <div className="loader_overlay" role="status" aria-live="polite">
+      <div className="loader_overlay__card">
+        <span className="loader__spinner" />
+        <p className="loader_overlay__title">Loading tracks...</p>
+        <p className="loader_overlay__text">
+          Please wait while we fetch the best
+          <br />
+          travel trucks for you
+        </p>
+      </div>
+    </div>
+  ) : (
+    <div className="loader" role="status" aria-label="Loading">
+      <span className="loader__spinner" />
     </div>
   );
-};

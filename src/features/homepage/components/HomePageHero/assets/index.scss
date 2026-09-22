@@ -1,31 +1,43 @@
 .hero {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1440px;
-  background-image: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 55.23%,
-      rgba(0, 0, 0, 0.3) 66.28%
-  ),
-  url('hero-bg.jpg');
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 72px);
+  background-image:
+    linear-gradient(rgba(12, 16, 23, 0.45), rgba(12, 16, 23, 0.45)),
+    url('@assets/images/hero.webp');
   background-position: center;
-  color: $cloud-color;
-  text-align: center;
-  padding: 250px 0;
+  background-size: cover;
+  color: $inputs-color;
 
-  &__content {
-    max-width: 800px;
-    margin: 0 auto;
+  &__container {
+    @include container;
 
-    &__title {
-      font-size: 48px;
-      margin-bottom: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+
+    @media (max-width: 767px) {
+      font-size: 36px;
     }
+  }
 
-    &__text {
-      font-size: 20px;
-      margin-bottom: 30px;
+  &__text {
+    margin-top: 16px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33;
+
+    @media (max-width: 767px) {
+      font-size: 18px;
     }
+  }
+
+  &__button {
+    margin-top: 40px;
   }
 }
