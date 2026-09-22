@@ -1,31 +1,28 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
+import { fileURLToPath, URL } from 'node:url';
 
-import { resolve } from 'path';
-
-const root = resolve(__dirname, 'src');
-const assetsPath = resolve(__dirname, 'src/assets');
+const srcPath = fileURLToPath(new URL('./src', import.meta.url));
+const assetsPath = fileURLToPath(new URL('./src/assets', import.meta.url));
 
 export default defineConfig({
-    plugins: [react()],
-    base: "/campers",
-    resolve: {
-        alias: {
-            '@': root,
-            '@assets': assetsPath,
-        },
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': srcPath,
+      '@assets': assetsPath,
     },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `
-          @import 'src/assets/scss/common/reset.scss';
-          @import 'src/assets/scss/common/colors.scss';
-          @import 'src/assets/scss/common/base.scss';
-          @import 'src/assets/scss/common/text.scss';
-          @import 'src/assets/scss/common/variables.scss';
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Only tokens and mixins are injected into every SCSS module —
+        // global styles (reset, base, text) are imported once in main.tsx.
+        additionalData: `
+          @import '@/assets/scss/common/colors';
+          @import '@/assets/scss/common/variables';
         `,
-            },
-        },
+      },
     },
+  },
 });
