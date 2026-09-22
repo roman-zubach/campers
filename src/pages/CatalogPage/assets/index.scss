@@ -1,7 +1,24 @@
 .catalog_page {
-  @extend .container;
-  padding-top: 0;
+  @include container;
 
   display: flex;
+  align-items: flex-start;
   gap: 64px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  &__sidebar {
+    flex-shrink: 0;
+    width: 360px;
+
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+    }
+  }
 }

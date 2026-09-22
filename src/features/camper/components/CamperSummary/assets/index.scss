@@ -1,0 +1,17 @@
+.camper_summary {
+  &__name {
+    @include title-text;
+
+    margin-bottom: 8px;
+  }
+
+  &__price {
+    @include title-text;
+
+    margin: 24px 0;
+  }
+
+  &__description {
+    color: $text-color;
+  }
+}

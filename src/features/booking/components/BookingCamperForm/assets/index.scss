@@ -1,0 +1,31 @@
+.booking_camper_form {
+  padding: 44px 56px;
+  border: 1px solid $gray-light-color;
+  border-radius: 10px;
+
+  @media (max-width: 767px) {
+    padding: 24px;
+  }
+
+  &__title {
+    @include section-title-text;
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: $gray-color;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+  }
+
+  &__submit {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

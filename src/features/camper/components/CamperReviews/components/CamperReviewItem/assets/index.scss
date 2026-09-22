@@ -1,0 +1,22 @@
+.camper_review_item {
+  padding: 16px;
+  border-radius: $radius-card;
+  background-color: $inputs-color;
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    @include medium-text;
+
+    margin-bottom: 4px;
+  }
+
+  &__comment {
+    color: $text-color;
+  }
+}

@@ -1,17 +1,20 @@
 import React from 'react';
 
+import { Button } from '@/common/components';
+import { routePaths } from '@/routing/constants';
+
 import './assets/index.scss';
 
 export const HomePageHero: React.FC = () => (
   <section className="hero">
-    <div className="hero__content">
-      <h1 className="hero__content__title">
-        Experience the Freedom of Travel with Our Campers!
-      </h1>
-      <p className="hero__content__text">
-        Choose your camper and embark on an unforgettable journey across Ukraine.
-        Travel comfortably and freely, we take care of everything with pleasure!
+    <div className="hero__container">
+      <h1 className="hero__title">Campers of your dreams</h1>
+      <p className="hero__text">
+        You can find everything you want in our catalog
       </p>
+      <Button to={routePaths.catalog()} className="hero__button">
+        View Now
+      </Button>
     </div>
   </section>
 );
