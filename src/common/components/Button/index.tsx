@@ -23,7 +23,6 @@ type ButtonAsLink = BaseProps & {
 
 type Props = ButtonAsButton | ButtonAsLink;
 
-/** Pill button from the UI kit. Renders a router `Link` when `to` is passed. */
 export const Button: React.FC<Props> = props => {
   const { children, variant = 'primary', className = '' } = props;
   const classes = `btn btn_${variant} ${className}`.trim();

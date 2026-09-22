@@ -16,7 +16,6 @@ const instance = axios.create({
   baseURL: CAMPERS_API_DOMAIN,
 });
 
-/** Turns filter state into query params, sending only the filters that are set. */
 const buildParams = (filters: CamperFilters, page: number) => {
   const params: Record<string, string | number | boolean> = {
     page,
@@ -40,8 +39,6 @@ export const getCampersApi = async (
   filters: CamperFilters,
   page: number
 ): Promise<CampersResponse> => {
-  // Options from the design with no matching campers (e.g. "Electric") —
-  // skip the request, the API would only answer with 404
   const { form, engine } = filters;
   if (
     (form && !API_FORMS.includes(form)) ||
@@ -57,7 +54,6 @@ export const getCampersApi = async (
 
     return data;
   } catch (error) {
-    // mockapi responds with 404 when nothing matches the filters
     if (axios.isAxiosError(error) && error.response?.status === 404) {
       return { total: 0, items: [] };
     }

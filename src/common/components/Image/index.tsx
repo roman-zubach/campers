@@ -9,7 +9,6 @@ type Props = {
   loading?: 'lazy' | 'eager';
 };
 
-/** `<img>` with a placeholder fallback when the camper has no photos. */
 export const Image: React.FC<Props> = ({
   src,
   alt,

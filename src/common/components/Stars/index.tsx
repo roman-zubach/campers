@@ -10,7 +10,6 @@ type Props = {
   rating: number;
 };
 
-/** Five-star rating row. */
 export const Stars: React.FC<Props> = ({ rating }) => (
   <div
     className="stars"

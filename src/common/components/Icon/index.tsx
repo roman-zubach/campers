@@ -10,7 +10,6 @@ type Props = {
   className?: string;
 };
 
-/** Icon from the SVG sprite. Colored via `currentColor`. */
 export const Icon: React.FC<Props> = ({ name, size = 20, className = '' }) => (
   <svg
     className={`icon ${className}`.trim()}

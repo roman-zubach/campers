@@ -13,7 +13,6 @@ type CamperState = {
   filters: CamperFilters;
   isLoading: boolean;
   error: string | null;
-  /** Id of the latest list request — responses of outdated requests are ignored. */
   requestId: string | null;
   favorites: string[];
   current: Camper | null;
@@ -35,7 +34,6 @@ const initialState: CamperState = {
   currentError: null,
 };
 
-/** Drops previous search results so the list always matches the filters. */
 const resetResults = (state: CamperState) => {
   state.items = [];
   state.total = 0;

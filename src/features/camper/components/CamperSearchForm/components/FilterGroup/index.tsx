@@ -8,7 +8,6 @@ type Props = {
   title: string;
   name: string;
   options: FilterOption[];
-  /** Radio groups allow one value, checkbox groups — several. */
   type: 'radio' | 'checkbox';
   selected: string | string[];
   onToggle: (value: string) => void;
@@ -42,7 +41,6 @@ export const FilterGroup: React.FC<Props> = ({
                   value={value}
                   checked={checked}
                   onChange={() => onToggle(value)}
-                  // Native radios can't be unchecked — allow it by clicking again
                   onClick={() => type === 'radio' && checked && onToggle(value)}
                 />
                 {label}

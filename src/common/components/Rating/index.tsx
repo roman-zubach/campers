@@ -11,7 +11,6 @@ type Props = {
   location: string;
 };
 
-/** "★ 4.4(2 Reviews)   🗺 Kyiv, Ukraine" row used on cards and the camper page. */
 export const Rating: React.FC<Props> = ({ rating, reviewsCount, location }) => (
   <div className="rating">
     <p className="rating__item">

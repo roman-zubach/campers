@@ -19,6 +19,5 @@ export const selectIsCurrentLoading = (state: RootState) =>
 export const selectCurrentError = (state: RootState) =>
   state.camper.currentError;
 
-/** False until the first catalog request has been sent. */
 export const selectHasRequested = (state: RootState) =>
   state.camper.requestId !== null;

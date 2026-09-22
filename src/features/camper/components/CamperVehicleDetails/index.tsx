@@ -10,7 +10,6 @@ type Props = {
   camper: Camper;
 };
 
-/** Feature badges (equipment present on the camper) and the specs table. */
 export const CamperVehicleDetails: React.FC<Props> = ({ camper }) => (
   <section className="camper_vehicle_details panel">
     <h2 className="camper_vehicle_details__title">Vehicle details</h2>

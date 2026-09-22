@@ -35,8 +35,6 @@ type Props = {
 };
 
 export const BookingCamperForm: React.FC<Props> = ({ camperName }) => {
-  // There is no booking endpoint in the API — a successful submit just
-  // notifies the user and clears the form.
   const handleSubmit = (
     { name }: BookingFormValues,
     { resetForm }: FormikHelpers<BookingFormValues>

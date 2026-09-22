@@ -11,9 +11,6 @@ export type CamperFeature = {
 export const getFormLabel = (form: string): string =>
   FORM_LABELS[form] ?? capitalize(form);
 
-/**
- * Short list of badges for a catalog card: engine, transmission and body type.
- */
 export const getCamperCardBadges = ({
   engine,
   transmission,
@@ -28,11 +25,6 @@ export const getCamperCardBadges = ({
   { key: 'form', label: getFormLabel(form), icon: 'camper' },
 ];
 
-/**
- * Full list of features for the camper page. Built from the properties
- * required by the spec: transmission, engine and every equipment flag that
- * is `true` on this camper.
- */
 export const getCamperFeatures = (camper: Camper): CamperFeature[] => {
   const features: CamperFeature[] = [];
 
@@ -53,7 +45,6 @@ export const getCamperFeatures = (camper: Camper): CamperFeature[] => {
   return features;
 };
 
-/** Rows for the "Vehicle details" table, skipping empty values. */
 export const getVehicleDetails = (camper: Camper) =>
   VEHICLE_DETAILS.filter(({ key }) => Boolean(camper[key])).map(
     ({ key, label }) => ({
@@ -64,6 +55,5 @@ export const getVehicleDetails = (camper: Camper) =>
     })
   );
 
-/** "5.4m" → "5.4 m", "12.4l/100km" → "12.4 l / 100km" (as in the design). */
 const formatUnit = (value: string): string =>
   value.replace(/^([\d.,]+)\s*/, '$1 ').replace(/\s*\/\s*/, ' / ');

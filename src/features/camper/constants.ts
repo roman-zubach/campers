@@ -17,7 +17,6 @@ export type FilterOption<T extends string = string> = {
   label: string;
 };
 
-/** Values that exist in the API data (the design lists a few more). */
 export const API_FORMS = ['alcove', 'panelTruck', 'fullyIntegrated'];
 export const API_ENGINES = ['diesel', 'petrol', 'hybrid'];
 
@@ -56,14 +55,12 @@ export const EQUIPMENT_OPTIONS: FilterOption<EquipmentKey>[] = (
   Object.keys(EQUIPMENT_LABELS) as EquipmentKey[]
 ).map(value => ({ value, label: EQUIPMENT_LABELS[value] }));
 
-/** Human-readable names of camper body types (API value → label). */
 export const FORM_LABELS: Record<string, string> = {
   alcove: 'Alcove',
   panelTruck: 'Panel truck',
   fullyIntegrated: 'Fully integrated',
 };
 
-/** Vehicle details shown in the table on the camper page, in design order. */
 export const VEHICLE_DETAILS = [
   { key: 'form', label: 'Form' },
   { key: 'length', label: 'Length' },

@@ -3,7 +3,6 @@ import React from 'react';
 import './assets/index.scss';
 
 type Props = {
-  /** Show the "Loading tracks…" card over the page instead of a plain spinner. */
   overlay?: boolean;
 };
 

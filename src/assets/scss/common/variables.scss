@@ -13,7 +13,6 @@ $breakpoint-tablet: 1024px;
   max-width: $container-width;
   margin-left: auto;
   margin-right: auto;
-  // Side gutter shrinks on small screens (see --container-padding in base.scss)
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
 }

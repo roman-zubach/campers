@@ -10,7 +10,6 @@ type Props = {
   name: string;
 };
 
-/** Main photo with clickable thumbnails below it. */
 export const CamperGallery: React.FC<Props> = ({ images, name }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = images[activeIndex];

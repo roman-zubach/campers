@@ -25,7 +25,6 @@ export const CamperList: React.FC = () => {
   const canLoadMore = useAppSelector(selectCanLoadMore);
   const hasRequested = useAppSelector(selectHasRequested);
 
-  // Load the first page for the current filters when the catalog opens
   useEffect(() => {
     dispatch(fetchCampers(1));
   }, [dispatch]);

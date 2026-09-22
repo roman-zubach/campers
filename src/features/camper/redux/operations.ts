@@ -10,7 +10,6 @@ const getErrorMessage = (error: unknown): string =>
     ? error.message
     : 'Something went wrong';
 
-/** Loads one page of campers using the filters currently stored in state. */
 export const fetchCampers = createAsyncThunk<
   CampersResponse,
   number,

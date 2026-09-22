@@ -5,10 +5,6 @@ import { fetchCampers } from '@/features/camper/redux/operations';
 import { CamperFilters } from '@/features/camper/types';
 import { useAppDispatch } from '@/redux/hooks';
 
-/**
- * Catalog actions shared by the filters sidebar and the empty state.
- * Changing filters clears previous results before the new request.
- */
 export const useCatalogActions = () => {
   const dispatch = useAppDispatch();
 

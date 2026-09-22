@@ -12,10 +12,6 @@ type Props = {
   autoComplete?: string;
 };
 
-/**
- * Text input bound to Formik. In the error state (see Figma "Details_error")
- * the label floats over the border and the message is shown below.
- */
 export const FormField: React.FC<Props> = ({
   name,
   label,

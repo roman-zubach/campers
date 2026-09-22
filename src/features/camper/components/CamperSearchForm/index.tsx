@@ -21,10 +21,8 @@ export const CamperSearchForm: React.FC = () => {
   const filters = useAppSelector(selectFilters);
   const { search, clearFilters } = useCatalogActions();
 
-  // Draft filters: applied to the store only when the user clicks "Search"
   const [draft, setDraft] = useState<CamperFilters>(filters);
 
-  // Keep the form in sync when filters are reset from elsewhere (empty state)
   useEffect(() => {
     setDraft(filters);
   }, [filters]);

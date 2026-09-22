@@ -2,7 +2,6 @@ export type CamperForm = 'alcove' | 'fullyIntegrated' | 'panelTruck';
 export type CamperEngine = 'diesel' | 'petrol' | 'hybrid';
 export type CamperTransmission = 'automatic' | 'manual';
 
-/** Boolean equipment flags returned by the API. */
 export type EquipmentKey =
   | 'AC'
   | 'bathroom'
@@ -49,11 +48,6 @@ export type CampersResponse = {
   items: Camper[];
 };
 
-/**
- * Catalog filters. Radio groups hold a plain string so that options from the
- * design that the API does not know yet (e.g. "Semi Integrated") still work —
- * they simply return an empty result.
- */
 export type CamperFilters = {
   location: string;
   form: string;

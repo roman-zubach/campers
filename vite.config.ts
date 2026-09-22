@@ -16,8 +16,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // Only tokens and mixins are injected into every SCSS module —
-        // global styles (reset, base, text) are imported once in main.tsx.
         additionalData: `
           @import '@/assets/scss/common/colors';
           @import '@/assets/scss/common/variables';

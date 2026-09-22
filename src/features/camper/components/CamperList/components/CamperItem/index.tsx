@@ -45,7 +45,6 @@ export const CamperItem: React.FC<Props> = ({ camper }) => {
           ))}
         </ul>
 
-        {/* Details open in a new browser tab (spec requirement) */}
         <Button to={routePaths.camper(id)} target="_blank">
           Show more
         </Button>

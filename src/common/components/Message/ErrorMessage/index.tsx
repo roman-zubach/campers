@@ -9,7 +9,6 @@ import './assets/index.scss';
 type Props = {
   title?: string;
   text?: string;
-  /** Show the "Back to catalog" link (hidden on the catalog page itself). */
   withBackLink?: boolean;
 };
 
