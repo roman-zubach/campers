@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Layout } from '@/common/components';
-import { CatalogPage, FavoritesPage, HomePage } from '@/pages';
+import { CamperPage, CatalogPage, HomePage } from '@/pages';
 import { routePaths } from '@/routing/constants';
 
 export const RouteList: React.FC = () => (
@@ -10,9 +10,8 @@ export const RouteList: React.FC = () => (
     <Route path={routePaths.home()} element={<Layout />}>
       <Route index element={<HomePage />} />
       <Route path={routePaths.catalog()} element={<CatalogPage />} />
-      <Route path={routePaths.favorites()} element={<FavoritesPage />} />
+      <Route path={routePaths.camper()} element={<CamperPage />} />
     </Route>
-    <Route path="*" element={<Navigate to={routePaths.home()} />} />
+    <Route path="*" element={<Navigate to={routePaths.home()} replace />} />
   </Routes>
 );
-
